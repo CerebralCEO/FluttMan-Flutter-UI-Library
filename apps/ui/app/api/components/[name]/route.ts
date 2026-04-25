@@ -1,9 +1,9 @@
-import { promises as fs } from "fs";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import { type NextRequest, NextResponse } from "next/server";
-import path from "path";
 
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ name: string }> },
 ) {
   try {

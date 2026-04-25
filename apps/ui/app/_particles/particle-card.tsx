@@ -1,8 +1,6 @@
-import { useCopyToClipboard } from "@flutman/ui/hooks/use-copy-to-clipboard";
 import { Icons } from "@flutman/ui/shared/icons";
 import { InformationCircleIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { SparklesIcon } from "lucide-react";
 import { cache } from "react";
 import { Index } from "@/registry/__index__";
 import { Button } from "@/registry/default/ui/button";
