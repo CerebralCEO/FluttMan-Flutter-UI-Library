@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dotenv": "^17.4.2",
     "react-day-picker": "^9.13.0"
   },
   "devDependencies": {

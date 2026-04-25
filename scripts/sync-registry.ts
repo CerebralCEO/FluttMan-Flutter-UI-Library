@@ -10,17 +10,19 @@
  */
 
 // test sync final
+import "dotenv/config";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { createClient } from "@supabase/supabase-js";
 
 // Initialize Supabase client with service role key for admin access
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+const supabaseUrl =
+  process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!supabaseUrl || !supabaseServiceKey) {
   console.error(
-    "❌ Error: SUPABASE_URL and SUPABASE_SERVICE_KEY environment variables are required",
+    "❌ Error: SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL) and SUPABASE_SERVICE_ROLE_KEY environment variables are required",
   );
   process.exit(1);
 }
