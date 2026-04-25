@@ -52,11 +52,11 @@ export async function ComponentPreview({
     `${baseName}.dart`,
   );
 
-  let dartCode: string | undefined;
+  let _dartCode: string | undefined;
   let useDart = false;
 
   try {
-    dartCode = await fs.readFile(dartFilePath, "utf-8");
+    _dartCode = await fs.readFile(dartFilePath, "utf-8");
     useDart = true;
   } catch {
     // Dart file doesn't exist, will fall back to React code

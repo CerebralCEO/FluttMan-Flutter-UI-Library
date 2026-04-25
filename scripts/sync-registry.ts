@@ -9,6 +9,7 @@
  * Usage: pnpm tsx scripts/sync-registry.ts
  */
 
+// test sync
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { createClient } from "@supabase/supabase-js";
@@ -188,7 +189,7 @@ async function main(): Promise<void> {
     }
   }
 
-  console.log("\n" + "=".repeat(50));
+  console.log(`\n${"=".repeat(50)}`);
   console.log("📊 Sync Summary:");
   console.log(`   ✅ Successful: ${successCount}`);
   console.log(`   ❌ Failed: ${failCount}`);
