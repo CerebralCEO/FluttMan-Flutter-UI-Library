@@ -1,15 +1,18 @@
-# flutman.com প্রোজেক্ট ডকুমেন্টেশন - A থেকে Z সম্পূর্ণ বিশ্লেষণ
+# FlutMan UI - সম্পূর্ণ প্রোজেক্ট ডকুমেন্টেশন (A-Z)
 
 ---
 
 ## 📋 প্রোজেক্ট পরিচিতি
 
-**flutman.com** (পূর্বে Origin UI) একটি কমার্শিয়াল ওপেন সোর্স সফটওয়্যার (FLUTMAN) কোম্পানি যা cal.com এর হোল্ডিং কোম্পানি। এই প্রোজেক্টটি একটি টার্বোরেপো মনোরেপো যা একাধিক অ্যাপ্লিকেশন এবং প্যাকেজ নিয়ে গঠিত।
+**FlutMan UI** একটি আধুনিক, অ্যাক্সেসিবল এবং কম্পোজেবল React UI কম্পোনেন্ট লাইব্রেরি। এটি **Base UI** এর উপরে তৈরি এবং **Tailwind CSS** দিয়ে স্টাইল করা হয়েছে। এই প্রোজেক্টটি **Turborepo** মনোরেপো আর্কিটেকচারে গঠিত।
 
-### মূল মিশন
-- ডেভেলপারদের জন্য `@flutman` npm প্যাকেজ তৈরি করা যা এক লাইনে ইন্সটল করা যায়
-- ইমেইল, SMS, ক্যালেন্ডার API, শিডিউলিং, ভিডিও কনফারেন্সিং, নোটিফিকেশন ইত্যাদি সেবা প্রদান
-- ওপেন সোর্স প্রজেক্টগুলোর জন্য একটি সাস্টেইনেবল হোম তৈরি করা
+### মূল বৈশিষ্ট্য
+- ৫০+ রি-ইউজেবল UI কম্পোনেন্ট
+- Base UI প্রিমিটিভ ব্যবহার করে তৈরি
+- Tailwind CSS v4 দিয়ে স্টাইলিং
+- TypeScript দিয়ে ফুল টাইপ সেফটি
+- Fumadocs দিয়ে ডকুমেন্টেশন
+- কম্পোনেন্ট রেজিস্ট্রি সিস্টেম
 
 ---
 
@@ -18,303 +21,142 @@
 ### মনোরেপো স্ট্রাকচার (Turborepo)
 
 ```
-flutman-main/
-├── apps/                    # প্রধান অ্যাপ্লিকেশনগুলো
-│   ├── www/                # flutman.com মূল ওয়েবসাইট
-│   ├── ui/                 # flutman ui কম্পোনেন্ট লাইব্রেরি ও ডকুমেন্টেশন
-│   ├── origin/             # লেগাসি Origin UI কম্পোনেন্ট
-│   └── examples/
-│       └── calcom/         # ক্যালকম উদাহরণ অ্যাপ
-├── packages/               # শেয়ার্ড প্যাকেজগুলো
-│   ├── ui/                 # @flutman/ui শেয়ার্ড UI প্যাকেজ
+flutman/
+├── apps/
+│   └── ui/                 # UI ডকুমেন্টেশন অ্যাপ (Next.js)
+├── packages/
+│   ├── ui/                 # @flutman/ui শেয়ার্ড প্যাকেজ
 │   └── typescript-config/  # TypeScript কনফিগারেশন
-└── রুট কনফিগারেশন ফাইলগুলো
+├── biome.json              # লিন্টার/ফরম্যাটার কনফিগ
+├── turbo.json              # Turborepo কনফিগ
+└── package.json            # রুট প্যাকেজ কনফিগ
 ```
 
-### টেক স্ট্যাক বিস্তারিত
+### সম্পূর্ণ টেক স্ট্যাক
 
-| ক্যাটেগরি | প্রযুক্তি | সংস্করণ |
-|---------|----------|---------|
-| **ফ্রেমওয়ার্ক** | Next.js | 16.1.7 |
-| **রিয়াক্ট** | React | 19.2.3 |
-| **ল্যাংগুয়েজ** | TypeScript | 5.9.3 |
-| **প্যাকেজ ম্যানেজার** | Bun | 1.3.1 |
-| **বিল্ড টুল** | Turborepo | 2.6.1 |
-| **স্টাইলিং** | Tailwind CSS | 4.1.17 |
-| **UI লাইব্রেরি** | Base UI | 1.4.1 |
-| **ডকুমেন্টেশন** | Fumadocs | 16.x |
-| **লিন্টার/ফরম্যাটার** | Biome | 2.3.10 |
-| **আইকন** | Lucide React, HugeIcons | সর্বশেষ |
-| **থিম** | next-themes | 0.4.6 |
-| **স্টেট ম্যানেজমেন্ট** | Jotai | 2.15.1 |
+| ক্যাটেগরি | প্রযুক্তি | সংস্করণ | উদ্দেশ্য |
+|-----------|----------|---------|----------|
+| **ফ্রেমওয়ার্ক** | Next.js | 16.1.7 | রিয়াক্ট ফ্রেমওয়ার্ক |
+| **রিয়াক্ট** | React | 19.2.3 | UI লাইব্রেরি |
+| **ল্যাংগুয়েজ** | TypeScript | 5.9.3 | টাইপ সেফটি |
+| **প্যাকেজ ম্যানেজার** | pnpm | 9.15.0 | ডিপেন্ডেন্সি ম্যানেজমেন্ট |
+| **বিল্ড টুল** | Turborepo | 2.6.1 | মনোরেপো ম্যানেজমেন্ট |
+| **স্টাইলিং** | Tailwind CSS | 4.1.17 | CSS ফ্রেমওয়ার্ক |
+| **UI প্রিমিটিভ** | Base UI | 1.4.1 | হেডলেস UI কম্পোনেন্ট |
+| **ডকুমেন্টেশন** | Fumadocs | 16.0.14 | MDX ডকুমেন্টেশন |
+| **লিন্টার** | Biome | 2.3.10 | কোড কোয়ালিটি |
+| **আইকন** | Lucide React | 0.555.0 | আইকন লাইব্রেরি |
+| **থিম** | next-themes | 0.4.6 | ডার্ক/লাইট মোড |
+| **ভ্যালিডেশন** | Zod | 4.1.12 | স্কিমা ভ্যালিডেশন |
+| **স্টেট** | Jotai | 2.15.1 | অ্যাটোমিক স্টেট |
 
 ---
 
-## 📦 প্যাকেজ এবং অ্যাপ বিশ্লেষণ
+## 📁 ফোল্ডার স্ট্রাকচার বিশ্লেষণ
 
-### 1. apps/www/ - মূল ওয়েবসাইট
+### 1. Root Level কনফিগারেশন
 
-**উদ্দেশ্য:** flutman.com এর প্রধান মার্কেটিং ওয়েবসাইট
+| ফাইল/ফোল্ডার | উদ্দেশ্য |
+|--------------|----------|
+| `package.json` | মনোরেপো রুট কনফিগ, workspaces ডিফাইন |
+| `turbo.json` | Turborepo টাস্ক কনফিগারেশন |
+| `biome.json` | কোড লিন্টিং এবং ফরম্যাটিং রুলস |
+| `pnpm-workspace.yaml` | pnpm ওয়ার্কস্পেস ডিফিনিশন |
+| `tsconfig.json` | TypeScript বেস কনফিগ |
+| `.husky/` | Git hooks কনফিগারেশন |
+| `lint-staged.config.mjs` | Staged ফাইল লিন্টিং |
 
-**প্রধান ফিচার:**
-- কোম্পানি পরিচিতি এবং মিশন বিবরণ
-- ওয়েটলিস্ট রেজিস্ট্রেশন
-- চাকরির বিজ্ঞপ্তি
+### 2. apps/ui/ - ডকুমেন্টেশন অ্যাপ
 
-**কম্পোনেন্ট স্ট্রাকচার:**
 ```
-app/
-├── layout.tsx           # রুট লেআউট (ThemeProvider, Header, Footer)
-├── page.tsx            # হোমপেইজ (কোম্পানি পরিচিতি)
-├── globals.css         # গ্লোবাল স্টাইল
-├── not-found.tsx       # ৪০৪ পেইজ
-├── sitemap.ts          # SEO সাইটম্যাপ
-├── robots.ts           # রোবোটস টেক্স্ট
-├── auth/               # অথেনটিকেশন পেইজ
-├── auth copy/          # অথেনটিকেশন কপি
-├── calendar/           # ক্যালেন্ডার পেইজ
-├── email/              # ইমেইল পেইজ
-├── notifications/      # নোটিফিকেশন পেইজ
-├── payments/           # পেমেন্ট পেইজ
-├── scheduling/         # শিডিউলিং পেইজ
-├── sms/                # SMS পেইজ
-└── video/              # ভিডিও পেইজ
-```
-
-**ডিপেন্ডেন্সি:**
-- `@flutman/ui`: workspace:*
-- `@hugeicons/core-free-icons`: ^2.0.0
-- `@hugeicons/react`: ^1.1.1
-- `lucide-react`: ^0.555.0
-- `next`: 16.1.7
-- `react`: ^19.2.3
-- `tailwindcss`: ^4.1.17
-
----
-
-### 2. apps/ui/ - flutman ui কম্পোনেন্ট লাইব্রেরি
-
-**উদ্দেশ্য:** আধুনিক UI কম্পোনেন্ট লাইব্রেরি এবং ডকুমেন্টেশন সাইট
-
-**প্রধান ফিচার:**
-- Base UI এর উপরে তৈরি কম্পোনেন্ট
-- Tailwind CSS দিয়ে স্টাইল করা
-- কপি-পেস্ট করার উপযোগী কম্পোনেন্ট
-- Fumadocs দিয়ে ডকুমেন্টেশন
-
-**কম্পোনেন্ট স্ট্রাকচার:**
-```
-app/
-├── layout.tsx              # রুট লেআউট (ThemeProvider, Toast, Header)
-├── page.tsx               # হোমপেইজ (ক্যাটেগরি কার্ড)
-├── globals.css            # গ্লোবাল স্টাইল
-├── not-found.tsx          # ৪০৪ পেইজ
-├── sitemap.ts             # SEO সাইটম্যাপ
-├── api/                   # API রুট
-│   └── raw/              # র ডকুমেন্টেশন এন্ডপয়েন্ট
-├── docs/                  # ডকুমেন্টেশন লেআউট
-│   ├── layout.tsx        # ডকস সাইডবার লেআউট
-│   └── [[...slug]]/      # ডাইনামিক ডকুমেন্টেশন পেইজ
-├── particles/             # কম্পোনেন্ট ব্রাউজার
-│   ├── page.tsx          # পার্টিকেলস পেইজ
-│   ├── particle-card.tsx # পার্টিকেল কার্ড
-│   ├── search-container.tsx # সার্চ কন্টেইনার
+apps/ui/
+├── app/                      # Next.js App Router
+│   ├── layout.tsx           # রুট লেআউট
+│   ├── page.tsx             # হোমপেইজ
+│   ├── globals.css          # গ্লোবাল স্টাইল
+│   ├── sitemap.ts           # SEO সাইটম্যাপ
+│   ├── not-found.tsx        # ৪০৪ পেইজ
+│   ├── docs/                # ডকুমেন্টেশন রাউট
+│   │   ├── layout.tsx       # ডকস লেআউট
+│   │   └── [[...slug]]/     # ডাইনামিক ডক পেইজ
+│   ├── _particles/          # কম্পোনেন্ট ব্রাউজার
+│   └── api/                 # API রাউট
+│       └── raw/             # র ডকুমেন্টেশন
+├── components/              # অ্যাপ-স্পেসিফিক কম্পোনেন্ট
+│   ├── site-header.tsx      # সাইট হেডার
+│   ├── site-footer.tsx      # সাইট ফুটার
+│   ├── category-thumbnails.tsx # ক্যাটেগরি থাম্বনেইল
+│   ├── component-preview.tsx # কম্পোনেন্ট প্রিভিউ
 │   └── ...
-└── opengraph-image.png    # OG ইমেজ
-
-components/
-├── site-header.tsx        # সাইট হেডার
-├── site-footer.tsx        # সাইট ফুটার
-├── docs-sidebar.tsx       # ডকুমেন্টেশন সাইডবার
-├── command-menu.tsx       # কমান্ড মেনু
-├── component-preview.tsx  # কম্পোনেন্ট প্রিভিউ
-├── category-thumbnails.tsx # ক্যাটেগরি থাম্বনেইল
-├── main-nav.tsx          # মূল নেভিগেশন
-└── mobile-nav.tsx        # মোবাইল নেভিগেশন
-
-registry/
-├── __index__.tsx          # রেজিস্ট্রি ইন্ডেক্স
-├── default/               # ডিফল্ট রেজিস্ট্রি আইটেম
-├── registry-particles.ts  # পার্টিকেলস রেজিস্ট্রি
-├── registry-ui.ts        # UI কম্পোনেন্ট রেজিস্ট্রি
-├── registry-base-ui.ts   # Base UI রেজিস্ট্রি
-├── registry-categories.ts # ক্যাটেগরি রেজিস্ট্রি
-├── registry-hooks.ts     # হুকস রেজিস্ট্রি
-├── registry-lib.ts       # লাইব্রেরি রেজিস্ট্রি
-└── registry-styles.ts    # স্টাইল রেজিস্ট্রি
-
-content/docs/              # MDX ডকুমেন্টেশন
-├── (root)/               # রুট ডকুমেন্টেশন
-├── components/           # কম্পোনেন্ট ডকুমেন্টেশন
-├── hooks/                # হুকস ডকুমেন্টেশন
-└── resources/            # রিসোর্স ডকুমেন্টেশন
+├── content/docs/            # MDX ডকুমেন্টেশন ফাইল
+│   ├── (root)/             # রুট ডকুমেন্টেশন
+│   ├── components/         # কম্পোনেন্ট ডক্স
+│   ├── hooks/              # হুকস ডক্স
+│   └── resources/          # রিসোর্স ডক্স
+├── registry/                # কম্পোনেন্ট রেজিস্ট্রি
+│   ├── default/ui/         # UI কম্পোনেন্টস
+│   ├── default/hooks/      # কাস্টম হুকস
+│   ├── default/lib/        # ইউটিলিটি ফাংশন
+│   ├── __index__.tsx       # রেজিস্ট্রি ইন্ডেক্স
+│   └── registry-*.ts       # রেজিস্ট্রি কনফিগ ফাইল
+├── lib/                     # অ্যাপ-স্পেসিফিক লাইব্রেরি
+│   ├── source.ts           # Fumadocs সোর্স
+│   └── utils.ts            # ইউটিলিটি ফাংশন
+├── public/                  # স্ট্যাটিক অ্যাসেটস
+│   ├── llms.txt            # LLM কন্টেক্সট
+│   └── ...
+├── scripts/                 # বিল্ড স্ক্রিপ্টস
+│   ├── build-registry.mts  # রেজিস্ট্রি বিল্ড
+│   ├── sync-ui.mts         # UI সিঙ্ক
+│   └── ...
+├── next.config.ts           # Next.js কনফিগ
+├── package.json             # অ্যাপ ডিপেন্ডেন্সি
+└── source.config.ts         # Fumadocs কনফিগ
 ```
 
-**ডিপেন্ডেন্সি:**
-- `@base-ui/react`: 1.4.1 (প্রধান UI প্রিমিটিভ)
-- `@flutman/ui`: workspace:*
-- `fumadocs-core`: ^16.0.14 (ডকুমেন্টেশন)
-- `fumadocs-mdx`: ^14.0.3
-- `jotai`: ^2.15.1 (স্টেট ম্যানেজমেন্ট)
-- `zod`: ^4.1.12 (ভ্যালিডেশন)
-- `class-variance-authority`: ^0.7.1
-- `clsx`: ^2.1.1
-- `tailwind-merge`: ^3.4.0
+### 3. packages/ui/ - শেয়ার্ড UI প্যাকেজ
 
----
-
-### 3. apps/origin/ - লেগাসি Origin UI
-
-**উদ্দেশ্য:** আগের Origin UI কম্পোনেন্টস (Radix UI ভিত্তিক)
-
-**প্রধান ফিচার:**
-- Radix UI প্রিমিটিভ ব্যবহার করে তৈরি
-- shadcn/ui স্টাইল
-- লেগাসি সাপোর্ট
-
-**কম্পোনেন্ট স্ট্রাকচার:**
 ```
-app/
-├── layout.tsx            # রুট লেআউট (Google Fonts, ThemeProvider)
-├── page.tsx             # হোমপেইজ (কম্পোনেন্ট গ্যালারি)
-├── globals.css          # গ্লোবাল স্টাইল (OKLCH রং ব্যবহার)
-├── not-found.tsx        # ৪০৪ পেইজ
-├── sitemap.ts           # SEO সাইটম্যাপ
-├── [category]/          # ডাইনামিক ক্যাটেগরি পেইজ
-├── easings/             # ইজিং ডেমো
-└── search/              # সার্চ ফাংশনালিটি
-
-components/
-├── header.tsx           # হেডার কম্পোনেন্ট
-├── footer.tsx           # ফুটার কম্পোনেন্ট
-├── theme-provider.tsx   # থিম প্রভাইডার
-├── top-banner.tsx       # টপ ব্যানার
-└── (অন্যান্য UI কম্পোনেন্ট)
-
-registry/
-├── default/            # ডিফল্ট কম্পোনেন্ট রেজিস্ট্রি
-└── (shadcn রেজিস্ট্রি ফাইলগুলো)
+packages/ui/
+├── src/
+│   ├── components/          # ৫০+ UI কম্পোনেন্ট
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── dialog.tsx
+│   │   ├── toast.tsx
+│   │   ├── sidebar.tsx
+│   │   └── ... (মোট ৫৩টি)
+│   ├── shared/            # শেয়ার্ড কম্পোনেন্ট
+│   │   ├── site-header.tsx
+│   │   ├── site-footer.tsx
+│   │   ├── theme-provider.tsx
+│   │   ├── page-header.tsx
+│   │   └── icons.tsx      # ১৫৮১০ বাইট আইকন
+│   ├── hooks/             # কাস্টম রিয়াক্ট হুকস
+│   │   ├── use-copy-to-clipboard.ts
+│   │   └── use-media-query.ts
+│   ├── lib/               # ইউটিলিটি ফাংশন
+│   │   ├── utils.ts       # cn() হেলপার
+│   │   └── config.ts      # কনফিগারেশন
+│   ├── fonts/             # কাস্টম ফন্ট
+│   │   ├── index.ts       # ফন্ট এক্সপোর্ট
+│   │   ├── CalSans-Regular.woff2
+│   │   └── PaperMono-Regular.woff2
+│   ├── base-ui/           # Base UI রি-এক্সপোর্ট
+│   │   ├── csp-provider.ts
+│   │   ├── direction-provider.ts
+│   │   └── use-render.ts
+│   └── styles/
+│       └── globals.css    # গ্লোবাল CSS (৪৬৪ লাইন)
+├── package.json            # প্যাকেজ কনফিগ
+└── postcss.config.mjs      # PostCSS কনফিগ
 ```
-
-**ডিপেন্ডেন্সি:**
-- `radix-ui`: 1.4.4-rc.1762291353631
-- `@radix-ui/react-icons`: ^1.3.2
-- `@dnd-kit/core`: ^6.3.1 (ড্র্যাগ অ্যান্ড ড্রপ)
-- `cmdk`: 1.1.1 (কমান্ড মেনু)
-- `react-aria`: ^3.44.0
-- `react-aria-components`: ^1.13.0
-- `sonner`: ^2.0.7 (টোস্ট নোটিফিকেশন)
-- `next-themes`: ^0.4.6
-
----
-
-### 4. packages/ui/ - @flutman/ui শেয়ার্ড প্যাকেজ
-
-**উদ্দেশ্য:** সমস্ত অ্যাপ্লিকেশনের জন্য শেয়ার্ড UI কম্পোনেন্ট
-
-**এক্সপোর্ট স্ট্রাকচার:**
-```
-src/
-├── components/           # ৫০+ UI কম্পোনেন্ট
-│   ├── accordion.tsx
-│   ├── alert.tsx
-│   ├── alert-dialog.tsx
-│   ├── autocomplete.tsx
-│   ├── avatar.tsx
-│   ├── badge.tsx
-│   ├── breadcrumb.tsx
-│   ├── button.tsx
-│   ├── calendar.tsx
-│   ├── card.tsx
-│   ├── checkbox.tsx
-│   ├── collapsible.tsx
-│   ├── combobox.tsx
-│   ├── command.tsx
-│   ├── dialog.tsx
-│   ├── drawer.tsx
-│   ├── dropdown-menu.tsx
-│   ├── input.tsx
-│   ├── menu.tsx
-│   ├── popover.tsx
-│   ├── select.tsx
-│   ├── sheet.tsx
-│   ├── sidebar.tsx
-│   ├── table.tsx
-│   ├── tabs.tsx
-│   ├── toast.tsx
-│   ├── tooltip.tsx
-│   └── (আরও অনেক কম্পোনেন্ট)
-│
-├── base-ui/             # Base UI এক্সপোর্ট
-│   ├── csp-provider.ts
-│   ├── direction-provider.ts
-│   ├── merge-props.ts
-│   └── use-render.ts
-│
-├── hooks/               # কাস্টম রিয়াক্ট হুকস
-│   ├── use-copy-to-clipboard.ts
-│   └── use-media-query.ts
-│
-├── lib/                 # ইউটিলিটি ফাংশন
-│   ├── utils.ts         # cn() হেলপার
-│   ├── config.ts        # কনফিগারেশন
-│   └── highlight-code.ts # কোড হাইলাইটিং
-│
-├── shared/              # শেয়ার্ড কম্পোনেন্ট
-│   ├── theme-provider.tsx
-│   ├── site-header.tsx
-│   ├── site-footer.tsx
-│   ├── site-cta.tsx
-│   ├── page-header.tsx
-│   ├── code-block.tsx
-│   ├── copy-button.tsx
-│   ├── github-link.tsx
-│   ├── mobile-nav.tsx
-│   ├── mode-switcher.tsx
-│   ├── icons.tsx        # ১৫৮১০ বাইট আইকন
-│   ├── product-label.tsx
-│   └── products-dropdown.tsx
-│
-├── fonts/               # কাস্টম ফন্ট
-│   ├── index.ts
-│   ├── CalSans-Regular.woff2
-│   ├── CalSansUI[wght,GEOM].woff2
-│   └── PaperMono-Regular.woff2
-│
-└── styles/
-    └── globals.css      # গ্লোবাল CSS (৪৬৪ লাইন)
-```
-
-**প্যাকেজ.json exports:**
-```json
-{
-  "./base-ui/*": "./src/base-ui/*.ts",
-  "./components/*": "./src/components/*.tsx",
-  "./fonts": "./src/fonts/index.ts",
-  "./globals.css": "./src/styles/globals.css",
-  "./hooks/*": "./src/hooks/*.ts",
-  "./lib/*": "./src/lib/*.ts",
-  "./postcss.config": "./postcss.config.mjs",
-  "./shared/*": "./src/shared/*.tsx"
-}
-```
-
----
-
-### 5. packages/typescript-config/
-
-**উদ্দেশ্য:** শেয়ার্ড TypeScript কনফিগারেশন
-
-**এক্সপোর্ট:**
-- `base.json`: বেস TS কনফিগ
-- `nextjs.json`: Next.js প্রজেক্টের জন্য
-- `react-library.json`: রিয়াক্ট লাইব্রেরির জন্য
 
 ---
 
 ## ⚙️ কনফিগারেশন ফাইল বিশ্লেষণ
 
-### 1. turbo.json (Turborepo কনফিগারেশন)
+### 1. turbo.json - Turborepo কনফিগারেশন
 
 ```json
 {
@@ -345,63 +187,120 @@ src/
 
 **বিশ্লেষণ:**
 - `dependsOn`: টাস্ক নির্ভরশীলতা সংজ্ঞায়িত করে
-- `inputs`: টাস্ক ইনপুট ডিফাইন করে
-- `outputs`: ক্যাশ করা আউটপুট
+- `^build`: ডিপেন্ডেন্সি প্যাকেজের বিল্ড অপেক্ষা করে
 - `cache`: টাস্ক ক্যাশিং সক্ষম/অক্ষম
+- `persistent`: dev সার্ভার চালু রাখে
 - `ui: "tui"`: টার্মিনাল ইউজার ইন্টারফেস
 
----
+### 2. biome.json - লিন্টিং ও ফরম্যাটিং
 
-### 2. biome.json (লিন্টিং ও ফরম্যাটিং)
-
-**প্রধান কনফিগারেশন:**
-- **Formatter**: ২ স্পেস ইন্ডেন্ট, ৮০ ক্যারেক্টার লাইন প্রস্থ
-- **Linter**: আক্সেসিবিলিটি, পারফরম্যান্স, সিকিউরিটি, স্টাইল রুলস
-- **CSS Parser**: Tailwind CSS ডিরেক্টিভ সাপোর্ট
-- **Import Organization**: কাস্টম গ্রুপিং
-
-**বিশেষ রুলস:**
 ```json
 {
-  "a11y": {
-    "noLabelWithoutControl": "off",
-    "noStaticElementInteractions": "off"
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80
   },
-  "nursery": {
-    "useSortedClasses": {
-      "level": "warn",
-      "options": {
-        "attributes": ["className", "classList"],
-        "functions": ["clsx", "cva", "cn", "tw", "tw.*"]
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "a11y": {
+        "noLabelWithoutControl": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "options": {
+            "attributes": ["className", "classList"],
+            "functions": ["clsx", "cva", "cn"]
+          }
+        }
       }
     }
   }
 }
 ```
 
+**বিশ্লেষণ:**
+- **Formatter**: ২ স্পেস ইন্ডেন্ট, ৮০ ক্যারেক্টার লাইন প্রস্থ
+- **Linter**: আক্সেসিবিলিটি, পারফরম্যান্স, সিকিউরিটি রুলস
+- **CSS Parser**: Tailwind CSS ডিরেক্টিভ সাপোর্ট
+- **useSortedClasses**: Tailwind ক্লাস অটো-সর্ট
+
+### 3. next.config.ts - Next.js কনফিগারেশন
+
+```typescript
+import { createMDX } from "fumadocs-mdx/next";
+
+const withMDX = createMDX();
+
+const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/docs/radix-shadcn-migration",
+        destination: "/docs/radix-migration",
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/docs/:path*.md",
+        destination: "/api/raw/docs/:path*",
+      },
+    ];
+  },
+  transpilePackages: ["@flutman/ui"],
+};
+
+export default withMDX(nextConfig);
+```
+
+**বিশ্লেষণ:**
+- `redirects`: URL রিডাইরেক্ট কনফিগ
+- `rewrites`: URL রি-রাইট রুলস
+- `transpilePackages`: ওয়ার্কস্পেস প্যাকেজ ট্রান্সপাইল
+
 ---
 
-### 3. Root package.json
+## 📦 প্যাকেজ.json ডিপেন্ডেন্সি বিশ্লেষণ
 
-**ওয়ার্কস্পেস কনফিগারেশন:**
-```json
-{
-  "workspaces": [
-    "apps/*",
-    "apps/examples/*",
-    "packages/*"
-  ],
-  "packageManager": "bun@1.3.1",
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "biome format --write .",
-    "typecheck": "turbo run typecheck",
-    "test": "bun test --pass-with-no-tests"
-  }
-}
-```
+### Root package.json
+
+| ক্যাটেগরি | প্যাকেজ | সংস্করণ | উদ্দেশ্য |
+|-----------|--------|---------|----------|
+| **DevDeps** | @biomejs/biome | 2.3.10 | লিন্টার/ফরম্যাটার |
+| **DevDeps** | husky | 9.1.7 | Git hooks |
+| **DevDeps** | lint-staged | 16.2.6 | Staged লিন্টিং |
+| **DevDeps** | turbo | 2.6.1 | মনোরেপো বিল্ড |
+| **DevDeps** | typescript | 5.9.3 | টাইপ সেফটি |
+
+### apps/ui package.json - মূল ডিপেন্ডেন্সি
+
+| ক্যাটেগরি | প্যাকেজ | উদ্দেশ্য |
+|-----------|--------|----------|
+| **Core** | @base-ui/react | হেডলেস UI প্রিমিটিভ |
+| **Core** | @flutman/ui | শেয়ার্ড UI প্যাকেজ |
+| **Core** | next | React ফ্রেমওয়ার্ক |
+| **Core** | react | UI লাইব্রেরি |
+| **Styling** | tailwindcss | CSS ইউটিলিটি |
+| **Styling** | @tailwindcss/postcss | PostCSS প্লাগিন |
+| **Styling** | class-variance-authority | কম্পোনেন্ট ভেরিয়েন্ট |
+| **Styling** | tailwind-merge | ক্লাস মার্জ |
+| **Styling** | clsx | শর্তভিত্তিক ক্লাস |
+| **Icons** | lucide-react | আইকন লাইব্রেরি |
+| **Icons** | @hugeicons/react | অতিরিক্ত আইকন |
+| **Icons** | @remixicon/react | রিমিক্স আইকন |
+| **Docs** | fumadocs-core | ডকুমেন্টেশন কোর |
+| **Docs** | fumadocs-mdx | MDX সাপোর্ট |
+| **Docs** | @shikijs/transformers | সিনট্যাক্স হাইলাইট |
+| **State** | jotai | অ্যাটোমিক স্টেট |
+| **Utils** | zod | স্কিমা ভ্যালিডেশন |
+| **Utils** | date-fns | ডেট ম্যানিপুলেশন |
+| **Utils** | ts-morph | TypeScript AST |
 
 ---
 
@@ -409,7 +308,6 @@ src/
 
 ### 1. কালার সিস্টেম (Tailwind CSS v4)
 
-**Root CSS ভেরিয়েবল (globals.css):**
 ```css
 :root {
   --radius: 0.625rem;
@@ -444,28 +342,50 @@ src/
   --chart-4: var(--color-amber-400);
   --chart-5: var(--color-amber-500);
   
+  /* ব্যাকগ্রাউন্ড */
+  --background: var(--color-white);
+  --foreground: var(--color-neutral-800);
+  --card: var(--color-white);
+  --card-foreground: var(--color-neutral-800);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-neutral-800);
+  --muted: var(--color-neutral-50);
+  --muted-foreground: var(--color-neutral-500);
+  
   /* সাইডবার */
   --sidebar: var(--color-neutral-50);
+  --sidebar-foreground: var(--color-neutral-800);
+  --sidebar-primary: var(--color-neutral-800);
+  --sidebar-primary-foreground: var(--color-neutral-50);
+  --sidebar-accent: --alpha(var(--color-black) / 4%);
+  --sidebar-accent-foreground: var(--color-neutral-800);
+  --sidebar-border: --alpha(var(--color-black) / 8%);
+  --sidebar-ring: var(--color-neutral-400);
+}
+
+/* ডার্ক মোড */
+.dark {
+  --background: var(--color-neutral-950);
+  --foreground: var(--color-neutral-50);
+  --card: var(--color-neutral-950);
+  --card-foreground: var(--color-neutral-50);
+  --popover: var(--color-neutral-950);
+  --popover-foreground: var(--color-neutral-50);
+  --muted: var(--color-neutral-900);
+  --muted-foreground: var(--color-neutral-400);
+  --accent: --alpha(var(--color-white) / 8%);
+  --accent-foreground: var(--color-neutral-50);
+  --destructive: var(--color-red-500);
+  --border: --alpha(var(--color-white) / 8%);
+  --input: --alpha(var(--color-white) / 10%);
+  --ring: var(--color-neutral-400);
 }
 ```
 
-**Dark Mode:**
-- `dark` ক্লাস ব্যবহার করে থিম পরিবর্তন
-- `next-themes` দিয়ে থিম ম্যানেজমেন্ট
-- স্বয়ংক্রিয় সিস্টেম থিম সনাক্তকরণ
-
----
-
 ### 2. টাইপোগ্রাফি সিস্টেম
 
-**ফন্ট ফ্যামিলি:**
 ```typescript
-// @flutman/ui/fonts
-export const fontMono = localFont({
-  src: "./PaperMono-Regular.woff2",
-  variable: "--font-mono",
-});
-
+// packages/ui/src/fonts/index.ts
 export const fontSans = localFont({
   src: "./CalSansUI[wght,GEOM].woff2",
   variable: "--font-sans",
@@ -476,6 +396,11 @@ export const fontHeading = localFont({
   src: "./CalSans-Regular.woff2",
   variable: "--font-heading",
   weight: "400 600",
+});
+
+export const fontMono = localFont({
+  src: "./PaperMono-Regular.woff2",
+  variable: "--font-mono",
 });
 ```
 
@@ -488,12 +413,15 @@ export const fontHeading = localFont({
 }
 ```
 
----
-
 ### 3. স্পেসিং এবং লেআউট সিস্টেম
 
 **ব্রেকপয়েন্ট:**
 ```css
+--breakpoint-sm: 640px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 1024px;
+--breakpoint-xl: 1280px;
+--breakpoint-2xl: 1536px;
 --breakpoint-3xl: 1600px;
 --breakpoint-4xl: 2000px;
 ```
@@ -513,20 +441,16 @@ export const fontHeading = localFont({
 --radius-xl: calc(var(--radius) + 4px);
 ```
 
----
-
 ### 4. অ্যানিমেশন সিস্টেম
 
-**কাস্টম অ্যানিমেশন:**
 ```css
 --animate-skeleton: skeleton 2s -1s infinite linear;
 --animate-caret-blink: 1s ease-out infinite caret-blink;
 --animate-toast-success-odd: toast-success-odd 0.32s cubic-bezier(0.5, 1, 0.89, 1);
+--animate-toast-success-even: toast-success-even 0.32s cubic-bezier(0.5, 1, 0.89, 1);
 --animate-toast-error-odd: toast-error-odd 0.28s cubic-bezier(0.5, 1, 0.89, 1);
-```
+--animate-toast-error-even: toast-error-even 0.28s cubic-bezier(0.5, 1, 0.89, 1);
 
-**কিফ্রেম ডিফিনিশন:**
-```css
 @keyframes skeleton {
   to { background-position: -200% 0; }
 }
@@ -541,24 +465,332 @@ export const fontHeading = localFont({
 
 ---
 
-## 🖼️ কম্পোনেন্ট প্রিভিউ সিস্টেম (হোমপেইজ কার্ড থাম্বনেইল)
+## 🧩 UI কম্পোনেন্ট বিশ্লেষণ
 
-### কীভাবে কাজ করে?
+### packages/ui/src/components/ - ৫৩টি কম্পোনেন্টের তালিকা
 
-হোমপেইজে প্রতিটি কম্পোনেন্ট কার্ডের ভেতরে যে প্রিভিউ দেখা যায়, সেটা একটি **থাম্বনেইল সিস্টেম** এর মাধ্যমে তৈরি করা হয়েছে। এটি রিয়েল কম্পোনেন্ট নয়, বরং JSX দিয়ে তৈরি static UI রিপ্রেজেন্টেশন।
+| কম্পোনেন্ট | ফাইল সাইজ | বিবরণ |
+|-----------|----------|--------|
+| **accordion** | 2.1KB | এক্সপ্যান্ডেবল কন্টেন্ট প্যানেল |
+| **alert** | 2.4KB | নোটিফিকেশন মেসেজ |
+| **alert-dialog** | 5.0KB | মোডাল কনফার্মেশন ডায়ালগ |
+| **autocomplete** | 10.6KB | সার্চেবল ড্রপডাউন |
+| **avatar** | 1.2KB | ইউজার প্রোফাইল ইমেজ |
+| **badge** | 2.8KB | স্ট্যাটাস ইন্ডিকেটর |
+| **breadcrumb** | 2.5KB | নেভিগেশন হায়ারারকি |
+| **button** | 6.1KB | প্রাইমারি অ্যাকশন কম্পোনেন্ট |
+| **calendar** | 5.3KB | ডেট পিকার |
+| **card** | 7.0KB | কন্টেন্ট কন্টেইনার |
+| **checkbox** | 2.9KB | বুলিয়ান ইনপুট |
+| **checkbox-group** | 0.4KB | মাল্টিপল চেকবক্স |
+| **collapsible** | 1.1KB | টগলেবল কন্টেন্ট |
+| **combobox** | 15.2KB | সিলেক্ট + ইনপুট |
+| **command** | 7.6KB | কমান্ড প্যালেট |
+| **dialog** | 6.5KB | মোডাল উইন্ডো |
+| **drawer** | 23.9KB | স্লাইড-আউট প্যানেল |
+| **empty** | 3.5KB | এম্পটি স্টেট |
+| **field** | 1.8KB | ফর্ম ফিল্ড |
+| **fieldset** | 0.7KB | ফর্ম গ্রুপ |
+| **form** | 0.3KB | ফর্ম কন্টেইনার |
+| **frame** | 2.0KB | লেআউট ফ্রেম |
+| **group** | 4.9KB | এলিমেন্ট গ্রুপ |
+| **input** | 3.0KB | টেক্সট ইনপুট |
+| **input-group** | 6.4KB | ইনপুট অ্যাডন |
+| **kbd** | 0.8KB | কীবোর্ড শর্টকাট |
+| **label** | 0.6KB | ফর্ম লেবেল |
+| **menu** | 11.3KB | নেভিগেশন মেনু |
+| **meter** | 1.7KB | মান পরিমাপ |
+| **number-field** | 5.8KB | সংখ্যা ইনপুট |
+| **otp-field** | 2.7KB | ওয়ান-টাইম পাসওয়ার্ড |
+| **pagination** | 3.1KB | পেজ নেভিগেশন |
+| **popover** | 4.6KB | টুলটিপ ডায়ালগ |
+| **preview-card** | 2.1KB | প্রিভিউ কার্ড |
+| **progress** | 1.8KB | প্রোগ্রেস বার |
+| **radio-group** | 2.1KB | সিঙ্গেল সিলেক্ট |
+| **scroll-area** | 2.5KB | কাস্টম স্ক্রল |
+| **select** | 9.4KB | ড্রপডাউন সিলেক্ট |
+| **separator** | 0.7KB | ভিজ্যুয়াল বিভাজক |
+| **sheet** | 6.8KB | সাইড প্যানেল |
+| **sidebar** | 22.7KB | নেভিগেশন সাইডবার |
+| **skeleton** | 0.6KB | লোডিং প্লেসহোল্ডার |
+| **slider** | 3.1KB | রেইঞ্জ সিলেক্টর |
+| **spinner** | 0.4KB | লোডিং ইন্ডিকেটর |
+| **switch** | 1.6KB | টগল সুইচ |
+| **table** | 5.0KB | ডেটা টেবিল |
+| **tabs** | 3.1KB | ট্যাব ইন্টারফেস |
+| **textarea** | 2.5KB | মাল্টিলাইন ইনপুট |
+| **toast** | 14.2KB | নোটিফিকেশন টোস্ট |
+| **toggle** | 2.4KB | বাইনারি সুইচ |
+| **toggle-group** | 3.6KB | মাল্টিপল টগল |
+| **toolbar** | 2.1KB | অ্যাকশন বার |
+| **tooltip** | 3.2KB | হোভার ইনফো |
 
-### ফাইল স্ট্রাকচার
+### প্রধান কম্পোনেন্ট বিশ্লেষণ
 
+#### 1. Button কম্পোনেন্ট (6.1KB)
+
+```typescript
+// packages/ui/src/components/button.tsx
+import { cva, type VariantProps } from "class-variance-authority";
+
+const buttonVariants = cva(
+  "relative inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-lg border font-medium text-base outline-none transition-shadow",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-white hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent",
+        secondary: "bg-secondary text-secondary-foreground",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 px-3",
+        lg: "h-11 px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
 ```
-apps/ui/components/category-thumbnails.tsx    # থাম্বনেইল কম্পোনেন্টস
-apps/ui/app/page.tsx                           # হোমপেইজ (কার্ড গ্রিড)
+
+**বৈশিষ্ট্য:**
+- ৬টি ভেরিয়েন্ট: default, destructive, outline, secondary, ghost, link
+- ৪টি সাইজ: default, sm, lg, icon
+- `asChild` prop দিয়ে polymorphic রেন্ডারিং
+- স্পিনার সাপোর্ট ফর লোডিং স্টেট
+- আইকন স্পেসিং অটোমেটিক
+
+#### 2. Card কম্পোনেন্ট (7.0KB)
+
+```typescript
+// packages/ui/src/components/card.tsx
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "rounded-xl border bg-card text-card-foreground shadow",
+      className
+    )}
+    {...props}
+  />
+));
+
+const CardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    {...props}
+  />
+));
+
+const CardTitle = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn("font-semibold leading-none tracking-tight", className)}
+    {...props}
+  />
+));
+
+const CardDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+));
+
+const CardContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+));
+
+const CardFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex items-center p-6 pt-0", className)}
+    {...props}
+  />
+));
 ```
 
-### থাম্বনেইল তৈরির প্রক্রিয়া
+**বৈশিষ্ট্য:**
+- Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter
+- রিসার্চ-বেসড স্পেসিং
+- সেমান্টিক HTML স্ট্রাকচার
+
+#### 3. Dialog কম্পোনেন্ট (6.5KB)
+
+```typescript
+// packages/ui/src/components/dialog.tsx
+import * as DialogPrimitive from "@base-ui/react/dialog";
+
+const Dialog = DialogPrimitive.Root;
+const DialogTrigger = DialogPrimitive.Trigger;
+const DialogPortal = DialogPrimitive.Portal;
+
+const DialogContent = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Popup>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>
+>(({ className, children, ...props }, ref) => (
+  <DialogPortal>
+    <DialogPrimitive.Backdrop
+      className="fixed inset-0 z-50 bg-black/50 data-[state=open]:animate-in data-[state=closed]:animate-out"
+    />
+    <DialogPrimitive.Popup
+      ref={ref}
+      className={cn(
+        "fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 border bg-background p-6 shadow-lg duration-200",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </DialogPrimitive.Popup>
+  </DialogPortal>
+));
+```
+
+**বৈশিষ্ট্য:**
+- Base UI Dialog প্রিমিটিভ ব্যবহার
+- ব্যাকড্রপ অ্যানিমেশন
+- সেন্টারড মোডাল
+- এসকেপ কী সাপোর্ট
+- ফোকাস ট্র্যাপ
+
+#### 4. Toast কম্পোনেন্ট (14.2KB)
+
+```typescript
+// packages/ui/src/components/toast.tsx
+const ToastProvider = ToastPrimitive.Provider;
+const AnchoredToastProvider = AnchoredToastPrimitive.Provider;
+
+const toastVariants = cva(
+  "group pointer-events-auto relative flex w-full items-center justify-between overflow-hidden rounded-md border p-4 pr-6 shadow-lg transition-all",
+  {
+    variants: {
+      variant: {
+        default: "border bg-background text-foreground",
+        destructive: "destructive border-destructive bg-destructive text-white",
+        success: "border-emerald-500/50 bg-emerald-500 text-white",
+        info: "border-blue-500/50 bg-blue-500 text-white",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
+```
+
+**বৈশিষ্ট্য:**
+- সাধারণ এবং Anchored টোস্ট সাপোর্ট
+- ৪টি ভেরিয়েন্ট: default, destructive, success, info
+- অটো-ডিসমিস
+- অ্যাকশন বাটন সাপোর্ট
+- কিউ ম্যানেজমেন্ট
+
+#### 5. Sidebar কম্পোনেন্ট (22.7KB)
+
+```typescript
+// packages/ui/src/components/sidebar.tsx
+const SidebarProvider = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> & {
+    defaultOpen?: boolean;
+    open?: boolean;
+    onOpenChange?: (open: boolean) => void;
+  }
+>(({ defaultOpen = true, open: openProp, onOpenChange, ...props }, ref) => {
+  const [open, setOpen] = React.useState(defaultOpen);
+  
+  return (
+    <SidebarContext.Provider value={{ open, setOpen }}>
+      <div ref={ref} {...props} />
+    </SidebarContext.Provider>
+  );
+});
+
+const sidebarMenuButtonVariants = cva(
+  "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-lg p-2 text-left text-sm outline-hidden ring-sidebar-ring transition-[width,height,padding]",
+  {
+    variants: {
+      variant: {
+        default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+        outline: "bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))]",
+      },
+      size: {
+        default: "h-8 text-sm",
+        sm: "h-7 text-xs",
+        lg: "h-12 text-sm",
+      },
+    },
+  }
+);
+```
+
+**বৈশিষ্ট্য:**
+- কলাপসিবল সাইডবার
+- মোবাইল ড্রয়ার মোড
+- কন্টেক্সট API ব্যবহার
+- কাস্টমাইজেবল ভেরিয়েন্টস
+
+---
+
+## 🖼️ কম্পোনেন্ট থাম্বনেইল সিস্টেম
+
+### হোমপেইজ কার্ড প্রিভিউ কীভাবে কাজ করে
+
+হোমপেইজে প্রতিটি কম্পোনেন্ট কার্ডের ভেতরে যে প্রিভিউ দেখা যায়, সেটি একটি **থাম্বনেইল সিস্টেম** এর মাধ্যমে তৈরি করা হয়েছে। এটি রিয়েল কম্পোনেন্ট নয়, বরং JSX দিয়ে তৈরি static UI রিপ্রেজেন্টেশন।
+
+### থাম্বনেইল তৈরির প্রক্রিয়া
 
 **1. বেইজ কম্পোনেন্টস:**
+
 ```typescript
-// category-thumbnails.tsx
+// apps/ui/components/category-thumbnails.tsx
 function Icon({ icon: IconComponent }) {
   return <IconComponent className="size-4 text-muted-foreground/88" />;
 }
@@ -577,43 +809,8 @@ function Card({ children, withGradient = true }) {
 }
 ```
 
-**2. কম্পোনেন্ট থাম্বনেইল:**
-```typescript
-// Accordion থাম্বনেইল
-export const accordionThumbnail = (
-  <Card className="max-w-50">
-    <CardPanel className="divide-y divide-border p-0">
-      <div className="p-3">
-        <div className="flex items-center gap-2">
-          <Icon icon={ChevronDownIcon} />
-          <Text className="w-[60%]" />
-        </div>
-      </div>
-      <div className="p-3">
-        <div className="flex items-center gap-2">
-          <Icon className="rotate-180" icon={ChevronDownIcon} />
-          <div className="flex flex-1 flex-col gap-2">
-            <Text className="w-[50%]" variant="main" />
-            <Text className="w-[90%]" variant="secondary" />
-          </div>
-        </div>
-      </div>
-    </CardPanel>
-  </Card>
-);
+**2. থাম্বনেইল ম্যাপ:**
 
-// Button থাম্বনেইল
-export const buttonThumbnail = (
-  <Card className="max-w-24 border-none bg-linear-to-b from-(--btn-from) to-(--btn-to) [--radius-2xl:14px]"
-    withGradient={false}>
-    <CardPanel className="px-6 py-4">
-      <Text className="bg-primary-foreground/40" />
-    </CardPanel>
-  </Card>
-);
-```
-
-**3. থাম্বনেইল ম্যাপ:**
 ```typescript
 export const categoryThumbnails: Record<string, ReactNode> = {
   accordion: accordionThumbnail,
@@ -621,6 +818,11 @@ export const categoryThumbnails: Record<string, ReactNode> = {
   "alert-dialog": alertDialogThumbnail,
   autocomplete: autocompleteThumbnail,
   avatar: avatarThumbnail,
+  badge: badgeThumbnail,
+  breadcrumb: breadcrumbThumbnail,
+  button: buttonThumbnail,
+  calendar: calendarThumbnail,
+  card: cardThumbnail,
   // ... আরও ৫০+ কম্পোনেন্ট
 };
 
@@ -629,7 +831,7 @@ export function getCategoryThumbnail(slug: string): ReactNode | undefined {
 }
 ```
 
-### হোমপেইজে ব্যবহার
+**3. হোমপেইজে ব্যবহার:**
 
 ```typescript
 // apps/ui/app/page.tsx
@@ -645,7 +847,7 @@ export default function Page() {
           name={category.name}
           slug={category.slug}
           description={category.description}
-          thumbnail={getCategoryThumbnail(category.slug)}  // থাম্বনেইল পাস
+          thumbnail={getCategoryThumbnail(category.slug)}
         />
       ))}
     </div>
@@ -653,301 +855,21 @@ export default function Page() {
 }
 ```
 
-### কেন এভাবে করা হয়েছে?
+### কেন এভাবে করা হয়েছে?
 
 | পদ্ধতি | সুবিধা | অসুবিধা |
 |--------|--------|---------|
-| **থাম্বনেইল (বর্তমান)** | ⚡ দ্রুত লোড, 🎨 কাস্টমাইজড look, 🪶 হালকা | ❌ রিয়েল ইন্টারঅ্যাকশন নেই |
-| **রিয়েল কম্পোনেন্ট** | ✅ আসল behavior দেখা যায় | 🐌 স্লো লোড, 🔧 কমপ্লেক্স |
+| **থাম্বনেইল (বর্তমান)** | ⚡ দ্রুত লোড, 🎨 কাস্টমাইজড look, 🪶 হালকা | ❌ রিয়েল ইন্টারঅ্যাকশন নেই |
+| **রিয়েল কম্পোনেন্ট** | ✅ আসল behavior দেখা যায় | 🐌 স্লো লোড, 🔧 কমপ্লেক্স |
 
-থাম্বনেইলগুলো **Lucide React Icons** এবং **Tailwind CSS** দিয়ে তৈরি, যা কম্পোনেন্টের মূল বৈশিষ্ট্য visual representation দেয়।
-
----
-
-## 🧩 UI কম্পোনেন্ট বিশ্লেষণ
-
-### 1. Button কম্পোনেন্ট
-
-```typescript
-// packages/ui/src/components/button.tsx
-import { cva, type VariantProps } from "class-variance-authority";
-
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-white hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent",
-        secondary: "bg-secondary text-secondary-foreground",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 px-3",
-        lg: "h-11 px-8",
-        icon: "h-10 w-10",
-      },
-    },
-  }
-);
-```
+থাম্বনেইলগুলো **Lucide React Icons** এবং **Tailwind CSS** দিয়ে তৈরি, যা কম্পোনেন্টের মূল বৈশিষ্ট্য visual representation দেয়।
 
 ---
 
-### 2. Card কম্পোনেন্ট
+## 🗄️ কন্টেন্ট ম্যানেজমেন্ট (MDX)
 
-```typescript
-// packages/ui/src/components/card.tsx
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-xl border bg-card text-card-foreground shadow",
-      className
-    )}
-    {...props}
-  />
-));
-```
+### Fumadocs কনফিগারেশন
 
----
-
-### 3. Dialog কম্পোনেন্ট
-
-```typescript
-// packages/ui/src/components/dialog.tsx
-// Base UI Dialog ব্যবহার করে তৈরি
-import * as DialogPrimitive from "@base-ui/react/dialog";
-
-const Dialog = DialogPrimitive.Root;
-const DialogTrigger = DialogPrimitive.Trigger;
-const DialogPortal = DialogPrimitive.Portal;
-
-const DialogContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Popup>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Popup>
->(({ className, children, ...props }, ref) => (
-  <DialogPortal>
-    <DialogPrimitive.Backdrop />
-    <DialogPrimitive.Popup
-      ref={ref}
-      className={cn(
-        "fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </DialogPrimitive.Popup>
-  </DialogPortal>
-));
-```
-
----
-
-### 4. Toast কম্পোনেন্ট
-
-```typescript
-// packages/ui/src/components/toast.tsx
-// সাধারণ এবং এঙ্কারড টোস্ট সাপোর্ট
-const ToastProvider = ToastPrimitive.Provider;
-const AnchoredToastProvider = AnchoredToastPrimitive.Provider;
-
-// টোস্ট ভেরিয়েন্ট
-const toastVariants = cva(
-  "group pointer-events-auto relative flex w-full items-center justify-between",
-  {
-    variants: {
-      variant: {
-        default: "border bg-background text-foreground",
-        destructive: "destructive border-destructive bg-destructive text-white",
-        success: "border-emerald-500/50 bg-emerald-500 text-white",
-        info: "border-blue-500/50 bg-blue-500 text-white",
-      },
-    },
-  }
-);
-```
-
----
-
-### 5. Sidebar কম্পোনেন্ট
-
-```typescript
-// packages/ui/src/components/sidebar.tsx
-// জটিল সাইডবার কম্পোনেন্ট
-const SidebarProvider = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentProps<"div"> & {
-    defaultOpen?: boolean;
-    open?: boolean;
-    onOpenChange?: (open: boolean) => void;
-  }
->(({ defaultOpen = true, ...props }, ref) => {
-  // Sidebar state management logic
-});
-```
-
----
-
-## 🔧 হুকস এবং ইউটিলিটি
-
-### 1. use-copy-to-clipboard.ts
-
-```typescript
-// packages/ui/src/hooks/use-copy-to-clipboard.ts
-export function useCopyToClipboard() {
-  const [copied, setCopied] = React.useState(false);
-  
-  const copy = React.useCallback(async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-      return true;
-    } catch {
-      return false;
-    }
-  }, []);
-  
-  return { copied, copy };
-}
-```
-
----
-
-### 2. use-media-query.ts
-
-```typescript
-// packages/ui/src/hooks/use-media-query.ts
-export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = React.useState(false);
-  
-  React.useEffect(() => {
-    const media = window.matchMedia(query);
-    setMatches(media.matches);
-    
-    const listener = () => setMatches(media.matches);
-    media.addEventListener("change", listener);
-    
-    return () => media.removeEventListener("change", listener);
-  }, [query]);
-  
-  return matches;
-}
-```
-
----
-
-### 3. cn() ইউটিলিটি
-
-```typescript
-// packages/ui/src/lib/utils.ts
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]): string {
-  return twMerge(clsx(inputs));
-}
-```
-
-**ব্যবহার:**
-```typescript
-// clsx দিয়ে শর্তভিত্তিক ক্লাস
-// twMerge দিয়ে Tailwind ক্লাস মার্জ
-className={cn(
-  "base-classes",
-  isActive && "active-classes",
-  isLarge ? "large-classes" : "small-classes"
-)}
-```
-
----
-
-## 📄 রাউটিং এবং পেইজ স্ট্রাকচার
-
-### 1. apps/ui - ডকুমেন্টেশন রাউটিং
-
-```
-/docs                    # ডকুমেন্টেশন হোম
-/docs/components/[slug] # কম্পোনেন্ট ডকুমেন্টেশন
-/docs/hooks/[slug]       # হুকস ডকুমেন্টেশন
-/particles               # কম্পোনেন্ট ব্রাউজার
-/api/raw/docs/[path]     # র ডকুমেন্টেশন API
-```
-
-**Next.js Route Config:**
-```typescript
-// app/docs/[[...slug]]/page.tsx
-import { source } from "@/lib/source";
-
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug?: string[] }>;
-}) {
-  const { slug } = await params;
-  const page = source.getPage(slug);
-  
-  if (!page) notFound();
-  
-  const MDX = page.data.body;
-  return <MDX />;
-}
-```
-
----
-
-### 2. apps/origin - ক্যাটেগরি রাউটিং
-
-```
-/[category]              # ডাইনামিক ক্যাটেগরি পেইজ
-/easings                 # ইজিং ডেমো পেইজ
-/search                  # সার্চ ফিচার
-```
-
-**ডাইনামিক রাউট:**
-```typescript
-// app/[category]/page.tsx
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ category: string }>;
-}) {
-  const { category } = await params;
-  // ক্যাটেগরি অনুযায়ী কম্পোনেন্ট প্রদর্শন
-}
-```
-
----
-
-### 3. apps/www - মার্কেটিং পেইজ
-
-```
-/                        # হোমপেইজ (কোম্পানি পরিচিতি)
-/auth                    # অথেনটিকেশন
-/calendar                # ক্যালেন্ডার সেবা
-/email                   # ইমেইল সেবা
-/notifications           # নোটিফিকেশন সেবা
-/payments                # পেমেন্ট সেবা
-/scheduling              # শিডিউলিং সেবা
-/sms                     # SMS সেবা
-/video                   # ভিডিও সেবা
-```
-
----
-
-## 🗃️ কন্টেন্ট ম্যানেজমেন্ট
-
-### MDX ডকুমেন্টেশন সিস্টেম
-
-**Fumadocs Configuration:**
 ```typescript
 // source.config.ts
 import { defineConfig, defineDocs } from "fumadocs-mdx/config";
@@ -982,27 +904,77 @@ export const docs = defineDocs({
 });
 ```
 
-**MDX ফাইল স্ট্রাকচার:**
+### MDX ফাইল স্ট্রাকচার
+
 ```
 content/docs/
 ├── (root)/
-│   ├── getting-started/
-│   │   └── index.mdx
-│   ├── introduction.mdx
-│   └── meta.json
-├── components/
+│   ├── index.mdx           # হোমপেইজ ডকুমেন্টেশন
+│   ├── get-started.mdx    # গেটিং স্টার্টেড
+│   ├── radix-migration.mdx # Radix মাইগ্রেশন গাইড
+│   ├── skills.mdx         # স্কিলস ডকুমেন্টেশন
+│   ├── changelog.mdx      # চেঞ্জলগ
+│   ├── roadmap.mdx        # রোডম্যাপ
+│   └── meta.json          # মেটাডেটা
+├── components/            # কম্পোনেন্ট ডকুমেন্টেশন
 │   ├── accordion.mdx
 │   ├── button.mdx
 │   ├── card.mdx
-│   └── meta.json
-└── meta.json
+│   └── ... (মোট ৫০+ ফাইল)
+├── hooks/                 # হুকস ডকুমেন্টেশন
+│   ├── use-copy-to-clipboard.mdx
+│   └── use-media-query.mdx
+└── resources/             # রিসোর্স ডকুমেন্টেশন
+    ├── meta.json
+    └── ...
+```
+
+### MDX ফাইল ফরম্যাট
+
+```mdx
+---
+title: Button
+description: ক্লিকেবল বাটন কম্পোনেন্ট
+links:
+  doc: https://base-ui.com/react/components/button
+---
+
+# Button
+
+বাটন কম্পোনেন্ট ব্যবহারকারীদের একটি অ্যাকশন চালু করতে দেয়।
+
+## Installation
+
+```bash
+npx shadcn add button
+```
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button";
+
+export default function Page() {
+  return <Button>Click me</Button>;
+}
+```
+
+## Examples
+
+### Variants
+
+<ComponentPreview name="button-variants" />
+
+### Sizes
+
+<ComponentPreview name="button-sizes" />
 ```
 
 ---
 
 ## 🔐 থিম ম্যানেজমেন্ট
 
-### ThemeProvider
+### ThemeProvider কনফিগারেশন
 
 ```typescript
 // packages/ui/src/shared/theme-provider.tsx
@@ -1030,14 +1002,12 @@ export function ThemeProvider({
 ```
 
 **বৈশিষ্ট্য:**
-- `attribute="class"`: dark ক্লাস ব্যবহার
+- `attribute="class"`: dark ক্লাস ব্যবহার করে থিম পরিবর্তন
 - `defaultTheme="system"`: সিস্টেম থিম অনুযায়ী
 - `enableSystem`: সিস্টেম থিম সনাক্তকরণ
 - `disableTransitionOnChange`: থিম পরিবর্তনে ট্রানজিশন নিষ্ক্রিয়
 
----
-
-### Mode Switcher
+### ModeSwitcher
 
 ```typescript
 // packages/ui/src/shared/mode-switcher.tsx
@@ -1072,7 +1042,7 @@ export function ModeSwitcher() {
     "format": "biome format --write .",
     "format:all": "biome check --write --unsafe --no-errors-on-unmatched",
     "lint": "turbo run lint --",
-    "test": "bun test --pass-with-no-tests",
+    "test": "pnpm test --pass-with-no-tests",
     "typecheck": "turbo run typecheck"
   }
 }
@@ -1085,43 +1055,30 @@ export function ModeSwitcher() {
     "build": "next build",
     "dev": "next dev --port 4000",
     "registry:build": "tsx ./scripts/build-registry.mts",
-    "ui:sync": "tsx ./scripts/sync-ui.mts"
+    "registry:validate-deps": "tsx ./scripts/validate-registry-deps.mts",
+    "ui:sync": "tsx ./scripts/sync-ui.mts && pnpm run ui:sync:imports",
+    "ui:sync:imports": "cd ../.. && pnpm exec biome check --write ..."
   }
 }
 ```
 
----
+### 2. CLI কমান্ড রেফারেন্স
 
-### 2. এনভায়রনমেন্ট ভেরিয়েবল
-
-**Local Development:**
-
-`apps/www/.env.local`:
-```sh
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-NEXT_PUBLIC_COSS_UI_URL=http://localhost:4000/ui
-```
-
-`apps/ui/.env.local`:
-```sh
-NEXT_PUBLIC_APP_URL=http://localhost:4000/ui
-NEXT_PUBLIC_COSS_URL=http://localhost:3000
-NEXT_PUBLIC_ORIGIN_URL=http://localhost:4001
-```
-
-`apps/origin/.env.local`:
-```sh
-NEXT_PUBLIC_APP_URL=http://localhost:4001/origin
-NEXT_PUBLIC_COSS_URL=http://localhost:3000
-NEXT_PUBLIC_COSS_UI_URL=http://localhost:4000/ui
-```
-
----
+| কমান্ড | উদ্দেশ্য |
+|--------|----------|
+| `pnpm install` | ডিপেন্ডেন্সি ইনস্টল |
+| `pnpm dev` | ডেভেলপমেন্ট সার্ভার চালু |
+| `pnpm build` | প্রোডাকশন বিল্ড |
+| `pnpm lint` | কোড লিন্টিং |
+| `pnpm format` | কোড ফরম্যাটিং |
+| `pnpm typecheck` | TypeScript টাইপ চেক |
+| `pnpm ui:sync` | UI কম্পোনেন্টস সিঙ্ক |
+| `pnpm registry:build` | রেজিস্ট্রি বিল্ড |
 
 ### 3. Git Hooks
 
 **Husky + lint-staged:**
-```json
+```javascript
 // lint-staged.config.mjs
 export default {
   "*.{ts,tsx,js,jsx}": ["biome check --write --no-errors-on-unmatched"],
@@ -1139,347 +1096,19 @@ export default {
 
 ---
 
-## 📊 পার্টিকেলস রেজিস্ট্রি সিস্টেম
-
-### কম্পোনেন্ট ব্রাউজার আর্কিটেকচার
-
-```typescript
-// registry/registry-particles.ts
-export interface Particle {
-  name: string;
-  description: string;
-  category: string;
-  dependencies: string[];
-  files: string[];
-}
-
-export const particles: Particle[] = [
-  {
-    name: "button",
-    description: "Clickable button component",
-    category: "inputs",
-    dependencies: ["@base-ui/react"],
-    files: ["button.tsx"],
-  },
-  // ... আরও পার্টিকেলস
-];
-```
-
-**ব্রাউজার ফিচার:**
-- ক্যাটেগরি অনুযায়ী ফিল্টার
-- সার্চ ফাংশনালিটি
-- রিয়েলটাইম প্রিভিউ
-- কোড কপি করার সুবিধা
-
----
-
-## 🧪 টেস্টিং কনফিগারেশন
-
-**Bun Test:**
-```json
-{
-  "scripts": {
-    "test": "bun test --pass-with-no-tests"
-  }
-}
-```
-
-**TypeScript Type Checking:**
-```json
-{
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  }
-}
-```
-
----
-
-## 🚀 ডিপ্লয়মেন্ট স্ট্রাকচার
-
-### বিল্ড কনফিগারেশন
-
-**Next.js Config (apps/ui):**
-```typescript
-// next.config.ts
-import { createMDX } from "fumadocs-mdx/next";
-
-const withMDX = createMDX();
-
-const nextConfig: NextConfig = {
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "/ui",
-  async redirects() {
-    return [
-      {
-        source: "/docs/radix-shadcn-migration",
-        destination: "/docs/radix-migration",
-        permanent: true,
-      },
-    ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/docs/:path*.md",
-        destination: "/api/raw/docs/:path*",
-      },
-    ];
-  },
-  transpilePackages: ["@flutman/ui"],
-};
-
-export default withMDX(nextConfig);
-```
-
----
-
-## 📋 কম্পোনেন্ট তালিকা (সম্পূর্ণ)
-
-### packages/ui/src/components/ - ৫০+ কম্পোনেন্ট
-
-| কম্পোনেন্ট | বিবরণ |
-|-----------|--------|
-| **accordion** | এক্সপ্যান্ডেবল কন্টেন্ট প্যানেল |
-| **alert** | নোটিফিকেশন মেসেজ |
-| **alert-dialog** | মোডাল ডায়ালগ বক্স |
-| **autocomplete** | সার্চেবল ড্রপডাউন |
-| **avatar** | ইউজার প্রোফাইল ইমেজ |
-| **badge** | স্ট্যাটাস ইন্ডিকেটর |
-| **breadcrumb** | নেভিগেশন হায়ারারকি |
-| **button** | ক্লিকেবল অ্যাকশন |
-| **calendar** | ডেট পিকার |
-| **card** | কন্টেন্ট কন্টেইনার |
-| **checkbox** | মাল্টি-সিলেক্ট ইনপুট |
-| **collapsible** | টগলেবল কন্টেন্ট |
-| **combobox** | সিলেক্ট + ইনপুট |
-| **command** | কমান্ড প্যালেট |
-| **dialog** | মোডাল উইন্ডো |
-| **drawer** | স্লাইড-আউট প্যানেল |
-| **dropdown-menu** | কনটেক্সটুয়াল মেনু |
-| **input** | টেক্সট ইনপুট |
-| **menu** | নেভিগেশন মেনু |
-| **popover** | টুলটিপ ডায়ালগ |
-| **select** | ড্রপডাউন সিলেক্ট |
-| **sheet** | সাইড প্যানেল |
-| **sidebar** | নেভিগেশন সাইডবার |
-| **table** | ডেটা টেবিল |
-| **tabs** | ট্যাব ইন্টারফেস |
-| **toast** | নোটিফিকেশন টোস্ট |
-| **tooltip** | হোভার ইনফো |
-| **separator** | ভিজ্যুয়াল বিভাজক |
-| **skeleton** | লোডিং প্লেসহোল্ডার |
-| **spinner** | লোডিং ইন্ডিকেটর |
-| **switch** | টগল সুইচ |
-| **slider** | রেইঞ্জ সিলেক্টর |
-| **textarea** | মাল্টিলাইন ইনপুট |
-| **toggle** | বাইনারি সুইচ |
-| **toggle-group** | মাল্টিপল টগল |
-| **toolbar** | অ্যাকশন বার |
-| **scroll-area** | কাস্টম স্ক্রল |
-| **radio-group** | সিঙ্গেল সিলেক্ট |
-| **progress** | প্রোগ্রেস বার |
-| **pagination** | পেজ নেভিগেশন |
-| **otp-field** | ওয়ান-টাইম পাসওয়ার্ড |
-| **number-field** | সংখ্যা ইনপুট |
-| **meter** | মান পরিমাপ |
-| **input-group** | ইনপুট অ্যাডন |
-| **kbd** | কীবোর্ড শর্টকাট |
-| **label** | ফর্ম লেবেল |
-| **fieldset** | ফর্ম গ্রুপ |
-| **field** | ফর্ম ফিল্ড |
-| **empty** | এম্পটি স্টেট |
-| **form** | ফর্ম কন্টেইনার |
-| **frame** | লেআউট ফ্রেম |
-| **group** | এলিমেন্ট গ্রুপ |
-| **preview-card** | প্রিভিউ কার্ড |
-
----
-
-## 🎨 আইকন সিস্টেম
-
-### আইকন লাইব্রেরি
-
-**1. Lucide React:**
-```typescript
-import { 
-  ChevronDown, 
-  ChevronRight, 
-  Menu, 
-  X, 
-  Search,
-  Sun,
-  Moon,
-  // ... আরও আইকন
-} from "lucide-react";
-```
-
-**2. HugeIcons:**
-```typescript
-import { 
-  HugeiconsIcon,
-  Home01Icon,
-  UserIcon,
-  // ... আরও আইকন
-} from "@hugeicons/react";
-import * as icons from "@hugeicons/core-free-icons";
-```
-
-**3. Remix Icon:**
-```typescript
-import { 
-  RiHomeLine,
-  RiUserLine,
-  // ... আরও আইকন
-} from "@remixicon/react";
-```
-
-**4. কাস্টম আইকন (packages/ui/src/shared/icons.tsx):**
-- ১৫৮১০ বাইট কাস্টম আইকন কম্পোনেন্ট
-- ব্র্যান্ড আইকন
-- প্রোডাক্ট আইকন
-- UI আইকন
-
----
-
-## 📦 লাইসেন্সিং স্ট্রাকচার
-
-**মিশ্র লাইসেন্সিং:**
-
-| ফোল্ডার | লাইসেন্স |
-|---------|---------|
-| `apps/origin/` | MIT |
-| `apps/ui/` | MIT |
-| `packages/ui/` | AGPL-3.0-or-later |
-| অন্যান্য | AGPL-3.0-or-later |
-
-**Root package.json:**
-```json
-{
-  "license": "AGPL-3.0-or-later"
-}
-```
-
----
-
-## 🔄 কম্পোনেন্ট সিঙ্ক ওয়ার্কফ্লো
-
-### UI সিঙ্ক প্রক্রিয়া
-
-```typescript
-// apps/ui/scripts/sync-ui.mts
-// @flutman/ui থেকে apps/ui/registry/default তে কম্পোনেন্ট সিঙ্ক
-
-export async function syncComponents() {
-  // 1. packages/ui/src/components থেকে ফাইল পড়া
-  // 2. apps/ui/registry/default/ui তে কপি করা
-  // 3. রেজিস্ট্রি আপডেট করা
-  // 4. Biome দিয়ে ফরম্যাট করা
-}
-```
-
-**সিঙ্ক কমান্ড:**
-```bash
-bun run ui:sync          # মূল সিঙ্ক
-bun run ui:sync:imports  # ইম্পোর্ট সংগঠিত করা
-```
-
----
-
-## 📝 শেয়ার্ড কম্পোনেন্ট বিশ্লেষণ
-
-### SiteHeader
-
-```typescript
-// packages/ui/src/shared/site-header.tsx
-export function SiteHeader() {
-  return (
-    <header className="sticky top-0 z-50">
-      <div className="container flex h-[var(--header-height)] items-center">
-        <MainNav />
-        <div className="flex flex-1 items-center justify-end gap-2">
-          <ProductsDropdown />
-          <ModeSwitcher />
-        </div>
-      </div>
-    </header>
-  );
-}
-```
-
-**বৈশিষ্ট্য:**
-- স্টিকি হেডার
-- প্রোডাক্ট ড্রপডাউন
-- থিম সুইচার
-- মোবাইল নেভিগেশন
-
----
-
-### SiteFooter
-
-```typescript
-// packages/ui/src/shared/site-footer.tsx
-export function SiteFooter() {
-  return (
-    <footer className="border-t py-6">
-      <div className="container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <p>© {new Date().getFullYear()} flutman.com</p>
-        <nav className="flex gap-4">
-          {/* লিংক */}
-        </nav>
-      </div>
-    </footer>
-  );
-}
-```
-
----
-
-### PageHeader
-
-```typescript
-// packages/ui/src/shared/page-header.tsx
-export function PageHeader({
-  className,
-  children,
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <section className={cn("grid gap-1", className)}>
-      {children}
-    </section>
-  );
-}
-
-export function PageHeaderHeading({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLHeadingElement>) {
-  return (
-    <h1
-      className={cn(
-        "font-heading text-3xl font-bold tracking-tight",
-        className
-      )}
-      {...props}
-    />
-  );
-}
-```
-
----
-
 ## 🔍 SEO এবং মেটাডেটা
 
-### SEO কনফিগারেশন
+### Root Layout মেটাডেটা
 
-**Root Layout:**
 ```typescript
+// apps/ui/app/layout.tsx
 export const metadata: Metadata = {
-  title: "flutman.com - the everything but AI company",
-  description: "Open source scheduling infrastructure",
-  metadataBase: new URL("https://flutman.com"),
+  title: "FlutMan - A new, modern UI component library built on top of Base UI",
+  description: "FlutMan is a collection of accessible, and composable React components. Built on top of Base UI and styled with Tailwind CSS",
+  metadataBase: new URL("https://flutman.dev"),
   openGraph: {
-    title: "flutman.com",
-    description: "Commercial open source software",
+    title: "FlutMan UI",
+    description: "Modern UI component library",
     images: "/opengraph-image.png",
   },
   twitter: {
@@ -1489,26 +1118,35 @@ export const metadata: Metadata = {
 };
 ```
 
-**Sitemap:**
+### Sitemap
+
 ```typescript
-// sitemap.ts
+// apps/ui/app/sitemap.ts
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://flutman.com",
+      url: "https://flutman.dev",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
+    {
+      url: "https://flutman.dev/particles",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    // ... আরও URL
   ];
 }
 ```
 
-**Robots:**
+### Robots
+
 ```typescript
-// robots.ts
+// apps/ui/app/robots.ts
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
@@ -1517,8 +1155,94 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://flutman.com/sitemap.xml",
+    sitemap: "https://flutman.dev/sitemap.xml",
   };
+}
+```
+
+---
+
+## 📊 রেজিস্ট্রি সিস্টেম
+
+### কম্পোনেন্ট রেজিস্ট্রি আর্কিটেকচার
+
+```typescript
+// apps/ui/registry/index.ts
+export interface RegistryItem {
+  name: string;
+  type: "registry:ui" | "registry:lib" | "registry:hook";
+  dependencies?: string[];
+  registryDependencies?: string[];
+  files?: string[];
+  source?: string;
+  category?: string;
+  subcategory?: string;
+  chunks?: Array<{
+    name: string;
+    description: string;
+    file: string;
+    code: string;
+  }>;
+}
+
+export const registry: RegistryItem[] = [
+  {
+    name: "button",
+    type: "registry:ui",
+    dependencies: ["@base-ui/react"],
+    files: ["registry/default/ui/button.tsx"],
+    category: "inputs",
+  },
+  // ... আরও আইটেম
+];
+```
+
+### রেজিস্ট্রি বিল্ড প্রক্রিয়া
+
+```typescript
+// apps/ui/scripts/build-registry.mts
+export async function buildRegistry() {
+  // 1. রেজিস্ট্রি ফাইল পড়া
+  // 2. কম্পোনেন্ট কোড পার্স করা
+  // 3. ডিপেন্ডেন্সি বিশ্লেষণ
+  // 4. registry.json তৈরি
+  // 5. __index__.tsx তৈরি
+}
+```
+
+---
+
+## 🚀 ডিপ্লয়মেন্ট স্ট্রাকচার
+
+### বিল্ড আউটপুট
+
+```
+apps/ui/
+├── .next/                    # Next.js বিল্ড আউটপুট
+│   ├── static/              # স্ট্যাটিক ফাইল
+│   ├── server/              # সার্ভার কম্পোনেন্ট
+│   └── cache/               # বিল্ড ক্যাশ
+├── .source/                 # Fumadocs জেনারেটেড ফাইল
+└── dist/                    # প্রোডাকশন বিল্ড
+```
+
+### ডিপ্লয়মেন্ট প্ল্যাটফর্ম
+
+| প্ল্যাটফর্ম | কনফিগারেশন |
+|------------|------------|
+| **Vercel** | সবচেয়ে সুপারিশন |
+| **Netlify** | সম্ভব |
+| **Docker** | সম্ভব |
+
+### Vercel কনফিগারেশন
+
+```json
+// vercel.json
+{
+  "buildCommand": "cd apps/ui && pnpm build",
+  "outputDirectory": "apps/ui/.next",
+  "framework": "nextjs",
+  "installCommand": "pnpm install"
 }
 ```
 
@@ -1561,7 +1285,7 @@ const customButton = cn(
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                      Turborepo Root                         │
-│                     (flutman-main/)                            │
+│                   (flutman-main/)                           │
 └─────────────────────────────────────────────────────────────┘
                               │
         ┌─────────────────────┼─────────────────────┐
@@ -1581,21 +1305,59 @@ const customButton = cn(
                               ▼
               ┌───────────────────────────────┐
               │       packages/ui             │
-              │      (@flutman/ui)               │
+              │      (@flutman/ui)            │
               ├───────────────────────────────┤
-              │ • 50+ Components              │
+              │ • 53+ Components              │
               │ • Shared Hooks                │
               │ • Custom Fonts                │
               │ • Theme Provider              │
-              │ • Utility Functions             │
+              │ • Utility Functions           │
               └───────────────────────────────┘
                               │
                               ▼
               ┌───────────────────────────────┐
               │   packages/typescript-config  │
-              │    (@flutman/typescript-config)  │
+              │    (@flutman/typescript-config) │
               └───────────────────────────────┘
 ```
+
+---
+
+## 📋 সম্পূর্ণ কম্পোনেন্ট API রেফারেন্স
+
+### Button API
+
+| Prop | টাইপ | ডিফল্ট | বিবরণ |
+|------|------|--------|--------|
+| `variant` | `default \| destructive \| outline \| secondary \| ghost \| link` | `default` | ভিজ্যুয়াল স্টাইল |
+| `size` | `default \| sm \| lg \| icon` | `default` | বাটন সাইজ |
+| `asChild` | `boolean` | `false` | Polymorphic রেন্ডারিং |
+| `disabled` | `boolean` | `false` | ডিজেবল্ড স্টেট |
+| `loading` | `boolean` | `false` | লোডিং স্টেট |
+
+### Card API
+
+| Component | বিবরণ |
+|-----------|--------|
+| `Card` | মূল কন্টেইনার |
+| `CardHeader` | হেডার সেকশন |
+| `CardTitle` | টাইটেল |
+| `CardDescription` | বর্ণনা |
+| `CardContent` | মূল কন্টেন্ট |
+| `CardFooter` | ফুটার সেকশন |
+
+### Dialog API
+
+| Component | বিবরণ |
+|-----------|--------|
+| `Dialog` | রুট কম্পোনেন্ট |
+| `DialogTrigger` | ট্রিগার এলিমেন্ট |
+| `DialogContent` | মোডাল কন্টেন্ট |
+| `DialogHeader` | হেডার সেকশন |
+| `DialogTitle` | টাইটেল |
+| `DialogDescription` | বর্ণনা |
+| `DialogFooter` | ফুটার সেকশন |
+| `DialogClose` | ক্লোজ বাটন |
 
 ---
 
@@ -1612,55 +1374,62 @@ const customButton = cn(
    - Next.js App Router
    - Server Components
    - Client Components
+   - React 19 ফিচারস
 
 3. **ডিজাইন সিস্টেম তৈরি**
    - Tailwind CSS v4
    - CSS ভেরিয়েবল
    - থিমিং
+   - অ্যানিমেশন
 
 4. **UI কম্পোনেন্ট লাইব্রেরি**
    - Base UI প্রিমিটিভ
    - CVA (class-variance-authority)
    - কম্পোজেবল API
+   - টাইপ সেফটি
 
 5. **ডকুমেন্টেশন সাইট**
    - Fumadocs
    - MDX
    - কোড হাইলাইটিং
+   - কম্পোনেন্ট প্রিভিউ
 
 6. **কোড কোয়ালিটি**
    - TypeScript
    - Biome
    - Git Hooks
+   - Lint-staged
 
 ---
 
 ## 📞 সাপোর্ট এবং রিসোর্স
 
 ### অফিসিয়াল লিংক:
-- **ওয়েবসাইট:** https://flutman.com
-- **UI ডকুমেন্টেশন:** https://flutman.com/ui
-- **cal.com:** https://cal.com
-- **GitHub:** https://github.com/cosscom
+- **ওয়েবসাইট:** https://flutman.vercel.app
+- **UI ডকুমেন্টেশন:** https://flutman.vercel.app/docs
+- **GitHub:** https://github.com/CerebralCEO/FluttMan-Flutter-UI-Library
 
-### কমিউনিটি:
-- **ওয়েটলিস্ট:** https://i.cal.com/forms/...
-- **চাকরি:** https://cal.com/jobs
+### ডকুমেন্টেশন:
+- **README.md**: প্রোজেক্ট ওভারভিউ
+- **AGENTS.md**: AI এজেন্ট গাইডলাইনস
+- **CONTRIBUTING.md**: কন্ট্রিবিউশন গাইড
+- **project_overview.md**: এই ফাইল - সম্পূর্ণ ডকুমেন্টেশন
 
 ---
 
 ## 🎓 পরিশিষ্ট
 
-এই ডকুমেন্টেশনে flutman.com প্রোজেক্টের সম্পূর্ণ A থেকে Z বিশ্লেষণ অন্তর্ভুক্ত করা হয়েছে। এই প্রোজেক্ট একটি সophisticated মনোরেপো যা আধুনিক React, Next.js, এবং Tailwind CSS ব্যবহার করে একটি শক্তিশালী UI কম্পোনেন্ট লাইব্রেরি তৈরি করেছে।
+এই ডকুমেন্টেশনে FlutMan UI প্রোজেক্টের সম্পূর্ণ A থেকে Z বিশ্লেষণ অন্তর্ভুক্ত করা হয়েছে। এই প্রোজেক্ট একটি sophisticated মনোরেপো যা আধুনিক React, Next.js, এবং Tailwind CSS ব্যবহার করে একটি শক্তিশালী UI কম্পোনেন্ট লাইব্রেরি তৈরি করেছে।
 
 **সংক্ষিপ্ত তথ্য:**
-- **প্রোজেক্ট নাম:** flutman.com (পূর্বে Origin UI)
-- **প্রধান কোম্পানি:** cal.com এর হোল্ডিং কোম্পানি
-- **টেক স্ট্যাক:** Next.js 16, React 19, TypeScript 5.9, Tailwind CSS 4, Bun
+- **প্রোজেক্ট নাম:** FlutMan UI
+- **টেক স্ট্যাক:** Next.js 16, React 19, TypeScript 5.9, Tailwind CSS 4, pnpm
 - **আর্কিটেকচার:** Turborepo মনোরেপো
-- **লাইসেন্স:** AGPL-3.0-or-later (MIT for apps/ui and apps/origin)
+- **UI লাইব্রেরি:** Base UI প্রিমিটিভ
+- **ডকুমেন্টেশন:** Fumadocs MDX
+- **লাইসেন্স:** MIT (apps/ui), AGPL-3.0 (packages/ui)
 
 ---
 
-*ডকুমেন্টেশন তৈরির তারিখ: ২২ এপ্রিল, ২০২৬*
-*সর্বশেষ আপডেট: ২২ এপ্রিল, ২০২৬*
+*ডকুমেন্টেশন তৈরির তারিখ: ২৫ এপ্রিল, ২০২৬*  
+*সর্বশেষ আপডেট: ২৫ এপ্রিল, ২০২৬*
