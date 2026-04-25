@@ -1,8 +1,8 @@
 "use client";
 
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
-import type React from "react";
 import { cn } from "@flutman/ui/lib/utils";
+import type React from "react";
 
 export type TabsVariant = "default" | "underline";
 

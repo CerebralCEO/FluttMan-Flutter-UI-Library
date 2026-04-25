@@ -1,5 +1,5 @@
-import type * as React from "react";
 import { cn } from "@flutman/ui/lib/utils";
+import type * as React from "react";
 
 export function Kbd({
   className,

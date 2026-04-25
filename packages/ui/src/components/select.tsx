@@ -3,6 +3,7 @@
 import { mergeProps } from "@base-ui/react/merge-props";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { useRender } from "@base-ui/react/use-render";
+import { cn } from "@flutman/ui/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import {
   ChevronDownIcon,
@@ -10,7 +11,6 @@ import {
   ChevronUpIcon,
 } from "lucide-react";
 import type * as React from "react";
-import { cn } from "@flutman/ui/lib/utils";
 
 export const Select: typeof SelectPrimitive.Root = SelectPrimitive.Root;
 

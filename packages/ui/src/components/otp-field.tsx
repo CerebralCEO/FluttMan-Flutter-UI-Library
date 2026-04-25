@@ -1,9 +1,9 @@
 "use client";
 
 import { OTPFieldPreview as OTPFieldPrimitive } from "@base-ui/react/otp-field";
-import type * as React from "react";
-import { cn } from "@flutman/ui/lib/utils";
 import { Separator } from "@flutman/ui/components/separator";
+import { cn } from "@flutman/ui/lib/utils";
+import type * as React from "react";
 
 export function OTPField({
   className,

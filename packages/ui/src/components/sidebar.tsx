@@ -2,11 +2,6 @@
 
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
-import { cva, type VariantProps } from "class-variance-authority";
-import { PanelLeftIcon } from "lucide-react";
-import * as React from "react";
-import { useMediaQuery } from "@flutman/ui/hooks/use-media-query";
-import { cn } from "@flutman/ui/lib/utils";
 import { Button } from "@flutman/ui/components/button";
 import { Input } from "@flutman/ui/components/input";
 import { ScrollArea } from "@flutman/ui/components/scroll-area";
@@ -24,6 +19,11 @@ import {
   TooltipPopup,
   TooltipTrigger,
 } from "@flutman/ui/components/tooltip";
+import { useMediaQuery } from "@flutman/ui/hooks/use-media-query";
+import { cn } from "@flutman/ui/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
+import { PanelLeftIcon } from "lucide-react";
+import * as React from "react";
 
 const SIDEBAR_COOKIE_NAME: string = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE: number = 60 * 60 * 24 * 7;

@@ -1,11 +1,11 @@
 "use client";
 
 import { Combobox as ComboboxPrimitive } from "@base-ui/react/combobox";
-import { ChevronsUpDownIcon, XIcon } from "lucide-react";
-import * as React from "react";
-import { cn } from "@flutman/ui/lib/utils";
 import { Input } from "@flutman/ui/components/input";
 import { ScrollArea } from "@flutman/ui/components/scroll-area";
+import { cn } from "@flutman/ui/lib/utils";
+import { ChevronsUpDownIcon, XIcon } from "lucide-react";
+import * as React from "react";
 
 export const ComboboxContext: React.Context<{
   chipsRef: React.RefObject<Element | null> | null;

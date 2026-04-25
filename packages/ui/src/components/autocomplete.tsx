@@ -1,11 +1,11 @@
 "use client";
 
 import { Autocomplete as AutocompletePrimitive } from "@base-ui/react/autocomplete";
-import { ChevronsUpDownIcon, XIcon } from "lucide-react";
-import type React from "react";
-import { cn } from "@flutman/ui/lib/utils";
 import { Input } from "@flutman/ui/components/input";
 import { ScrollArea } from "@flutman/ui/components/scroll-area";
+import { cn } from "@flutman/ui/lib/utils";
+import { ChevronsUpDownIcon, XIcon } from "lucide-react";
+import type React from "react";
 
 export const Autocomplete: typeof AutocompletePrimitive.Root =
   AutocompletePrimitive.Root;

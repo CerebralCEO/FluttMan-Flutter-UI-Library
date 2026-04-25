@@ -1,6 +1,6 @@
 import { Separator as SeparatorPrimitive } from "@base-ui/react/separator";
-import type React from "react";
 import { cn } from "@flutman/ui/lib/utils";
+import type React from "react";
 
 export function Separator({
   className,
