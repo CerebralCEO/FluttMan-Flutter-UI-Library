@@ -11,7 +11,7 @@ export default function Particle() {
       <GroupSeparator />
       <Input
         aria-label="Domain"
-        defaultValue="coss.com"
+        defaultValue="flutman.com"
         id="domain"
         type="text"
       />

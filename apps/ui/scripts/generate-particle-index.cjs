@@ -1,26 +1,26 @@
 #!/usr/bin/env node
 
 /**
- * Generates the COSS Particles SKILL.md file by reading the particle registry
+ * Generates the FLUTMAN Particles SKILL.md file by reading the particle registry
  * from the same repository.
  *
- * Usage (from the coss repo root):
+ * Usage (from the flutman repo root):
  *   node apps/ui/scripts/generate-particle-index.cjs
  *
  * The script reads apps/ui/registry/registry-particles.ts, extracts all
  * particle names and descriptions, groups them by component type, and writes
- * the SKILL.md file to apps/ui/skills/coss-particles/SKILL.md.
+ * the SKILL.md file to apps/ui/skills/flutman-particles/SKILL.md.
  */
 
 const fs = require("node:fs");
 const path = require("node:path");
 
-const COSS_PARTICLES_URL = "https://coss.com/ui/particles";
-const COSS_JSON_BASE_URL = "https://coss.com/ui/r";
+const COSS_PARTICLES_URL = "https://flutman.com/ui/particles";
+const COSS_JSON_BASE_URL = "https://flutman.com/ui/r";
 const COSS_REPO_PARTICLES_PATH = "apps/ui/registry/default/particles";
 
 function main() {
-  // Resolve coss repo root relative to this script
+  // Resolve flutman repo root relative to this script
   const scriptDir = __dirname;
   const repoRoot = path.resolve(scriptDir, "../../..");
   const registryFile = path.join(
@@ -81,22 +81,22 @@ function main() {
   const lines = [];
 
   lines.push("---");
-  lines.push("name: coss-particles");
+  lines.push("name: flutman-particles");
   lines.push(
-    "description: Index of all COSS UI particle examples. Use when implementing UI features to find copy-paste-ready component patterns built on coss primitives. Each particle has a description and a JSON URL for easy installation.",
+    "description: Index of all FLUTMAN UI particle examples. Use when implementing UI features to find copy-paste-ready component patterns built on flutman primitives. Each particle has a description and a JSON URL for easy installation.",
   );
   lines.push(
-    "compatibility: Requires coss UI components installed in the project.",
+    "compatibility: Requires flutman UI components installed in the project.",
   );
   lines.push("license: MIT");
   lines.push("metadata:");
   lines.push("  author: cosscom");
   lines.push("---");
   lines.push("");
-  lines.push("# COSS UI Particles Index");
+  lines.push("# FLUTMAN UI Particles Index");
   lines.push("");
   lines.push(
-    `Particles are copy-paste-ready UI patterns built on [coss](https://coss.com/ui) primitives. Browse them visually at <${COSS_PARTICLES_URL}>.`,
+    `Particles are copy-paste-ready UI patterns built on [flutman](https://flutman.com/ui) primitives. Browse them visually at <${COSS_PARTICLES_URL}>.`,
   );
   lines.push("");
   lines.push("## How to use this skill");
@@ -128,7 +128,7 @@ function main() {
   lines.push("");
   lines.push("## Updating this index");
   lines.push("");
-  lines.push("Run the generator script from the coss repo root:");
+  lines.push("Run the generator script from the flutman repo root:");
   lines.push("```bash");
   lines.push("node apps/ui/scripts/generate-particle-index.cjs");
   lines.push("```");
@@ -163,10 +163,10 @@ function main() {
 
   const skillContent = lines.join("\n");
 
-  // Write to SKILL.md in the coss-particles skill directory
+  // Write to SKILL.md in the flutman-particles skill directory
   const skillFile = path.join(
     repoRoot,
-    "apps/ui/skills/coss-particles/SKILL.md",
+    "apps/ui/skills/flutman-particles/SKILL.md",
   );
   fs.writeFileSync(skillFile, skillContent, "utf8");
 

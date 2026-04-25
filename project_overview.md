@@ -1,13 +1,13 @@
-# coss.com প্রোজেক্ট ডকুমেন্টেশন - A থেকে Z সম্পূর্ণ বিশ্লেষণ
+# flutman.com প্রোজেক্ট ডকুমেন্টেশন - A থেকে Z সম্পূর্ণ বিশ্লেষণ
 
 ---
 
 ## 📋 প্রোজেক্ট পরিচিতি
 
-**coss.com** (পূর্বে Origin UI) একটি কমার্শিয়াল ওপেন সোর্স সফটওয়্যার (COSS) কোম্পানি যা cal.com এর হোল্ডিং কোম্পানি। এই প্রোজেক্টটি একটি টার্বোরেপো মনোরেপো যা একাধিক অ্যাপ্লিকেশন এবং প্যাকেজ নিয়ে গঠিত।
+**flutman.com** (পূর্বে Origin UI) একটি কমার্শিয়াল ওপেন সোর্স সফটওয়্যার (FLUTMAN) কোম্পানি যা cal.com এর হোল্ডিং কোম্পানি। এই প্রোজেক্টটি একটি টার্বোরেপো মনোরেপো যা একাধিক অ্যাপ্লিকেশন এবং প্যাকেজ নিয়ে গঠিত।
 
 ### মূল মিশন
-- ডেভেলপারদের জন্য `@coss` npm প্যাকেজ তৈরি করা যা এক লাইনে ইন্সটল করা যায়
+- ডেভেলপারদের জন্য `@flutman` npm প্যাকেজ তৈরি করা যা এক লাইনে ইন্সটল করা যায়
 - ইমেইল, SMS, ক্যালেন্ডার API, শিডিউলিং, ভিডিও কনফারেন্সিং, নোটিফিকেশন ইত্যাদি সেবা প্রদান
 - ওপেন সোর্স প্রজেক্টগুলোর জন্য একটি সাস্টেইনেবল হোম তৈরি করা
 
@@ -18,15 +18,15 @@
 ### মনোরেপো স্ট্রাকচার (Turborepo)
 
 ```
-coss-main/
+flutman-main/
 ├── apps/                    # প্রধান অ্যাপ্লিকেশনগুলো
-│   ├── www/                # coss.com মূল ওয়েবসাইট
-│   ├── ui/                 # coss ui কম্পোনেন্ট লাইব্রেরি ও ডকুমেন্টেশন
+│   ├── www/                # flutman.com মূল ওয়েবসাইট
+│   ├── ui/                 # flutman ui কম্পোনেন্ট লাইব্রেরি ও ডকুমেন্টেশন
 │   ├── origin/             # লেগাসি Origin UI কম্পোনেন্ট
 │   └── examples/
 │       └── calcom/         # ক্যালকম উদাহরণ অ্যাপ
 ├── packages/               # শেয়ার্ড প্যাকেজগুলো
-│   ├── ui/                 # @coss/ui শেয়ার্ড UI প্যাকেজ
+│   ├── ui/                 # @flutman/ui শেয়ার্ড UI প্যাকেজ
 │   └── typescript-config/  # TypeScript কনফিগারেশন
 └── রুট কনফিগারেশন ফাইলগুলো
 ```
@@ -54,7 +54,7 @@ coss-main/
 
 ### 1. apps/www/ - মূল ওয়েবসাইট
 
-**উদ্দেশ্য:** coss.com এর প্রধান মার্কেটিং ওয়েবসাইট
+**উদ্দেশ্য:** flutman.com এর প্রধান মার্কেটিং ওয়েবসাইট
 
 **প্রধান ফিচার:**
 - কোম্পানি পরিচিতি এবং মিশন বিবরণ
@@ -82,7 +82,7 @@ app/
 ```
 
 **ডিপেন্ডেন্সি:**
-- `@coss/ui`: workspace:*
+- `@flutman/ui`: workspace:*
 - `@hugeicons/core-free-icons`: ^2.0.0
 - `@hugeicons/react`: ^1.1.1
 - `lucide-react`: ^0.555.0
@@ -92,7 +92,7 @@ app/
 
 ---
 
-### 2. apps/ui/ - coss ui কম্পোনেন্ট লাইব্রেরি
+### 2. apps/ui/ - flutman ui কম্পোনেন্ট লাইব্রেরি
 
 **উদ্দেশ্য:** আধুনিক UI কম্পোনেন্ট লাইব্রেরি এবং ডকুমেন্টেশন সাইট
 
@@ -152,7 +152,7 @@ content/docs/              # MDX ডকুমেন্টেশন
 
 **ডিপেন্ডেন্সি:**
 - `@base-ui/react`: 1.4.1 (প্রধান UI প্রিমিটিভ)
-- `@coss/ui`: workspace:*
+- `@flutman/ui`: workspace:*
 - `fumadocs-core`: ^16.0.14 (ডকুমেন্টেশন)
 - `fumadocs-mdx`: ^14.0.3
 - `jotai`: ^2.15.1 (স্টেট ম্যানেজমেন্ট)
@@ -208,7 +208,7 @@ registry/
 
 ---
 
-### 4. packages/ui/ - @coss/ui শেয়ার্ড প্যাকেজ
+### 4. packages/ui/ - @flutman/ui শেয়ার্ড প্যাকেজ
 
 **উদ্দেশ্য:** সমস্ত অ্যাপ্লিকেশনের জন্য শেয়ার্ড UI কম্পোনেন্ট
 
@@ -460,7 +460,7 @@ src/
 
 **ফন্ট ফ্যামিলি:**
 ```typescript
-// @coss/ui/fonts
+// @flutman/ui/fonts
 export const fontMono = localFont({
   src: "./PaperMono-Regular.woff2",
   variable: "--font-mono",
@@ -1225,7 +1225,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  transpilePackages: ["@coss/ui"],
+  transpilePackages: ["@flutman/ui"],
 };
 
 export default withMDX(nextConfig);
@@ -1367,7 +1367,7 @@ import {
 
 ```typescript
 // apps/ui/scripts/sync-ui.mts
-// @coss/ui থেকে apps/ui/registry/default তে কম্পোনেন্ট সিঙ্ক
+// @flutman/ui থেকে apps/ui/registry/default তে কম্পোনেন্ট সিঙ্ক
 
 export async function syncComponents() {
   // 1. packages/ui/src/components থেকে ফাইল পড়া
@@ -1422,7 +1422,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t py-6">
       <div className="container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <p>© {new Date().getFullYear()} coss.com</p>
+        <p>© {new Date().getFullYear()} flutman.com</p>
         <nav className="flex gap-4">
           {/* লিংক */}
         </nav>
@@ -1474,11 +1474,11 @@ export function PageHeaderHeading({
 **Root Layout:**
 ```typescript
 export const metadata: Metadata = {
-  title: "coss.com - the everything but AI company",
+  title: "flutman.com - the everything but AI company",
   description: "Open source scheduling infrastructure",
-  metadataBase: new URL("https://coss.com"),
+  metadataBase: new URL("https://flutman.com"),
   openGraph: {
-    title: "coss.com",
+    title: "flutman.com",
     description: "Commercial open source software",
     images: "/opengraph-image.png",
   },
@@ -1497,7 +1497,7 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://coss.com",
+      url: "https://flutman.com",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
@@ -1517,7 +1517,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://coss.com/sitemap.xml",
+    sitemap: "https://flutman.com/sitemap.xml",
   };
 }
 ```
@@ -1545,7 +1545,7 @@ export default function robots(): MetadataRoute.Robots {
 
 ```typescript
 // clsx এবং tailwind-merge ব্যবহার করে
-import { cn } from "@coss/ui/lib/utils";
+import { cn } from "@flutman/ui/lib/utils";
 
 const customButton = cn(
   baseButtonStyles,
@@ -1561,7 +1561,7 @@ const customButton = cn(
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                      Turborepo Root                         │
-│                     (coss-main/)                            │
+│                     (flutman-main/)                            │
 └─────────────────────────────────────────────────────────────┘
                               │
         ┌─────────────────────┼─────────────────────┐
@@ -1581,7 +1581,7 @@ const customButton = cn(
                               ▼
               ┌───────────────────────────────┐
               │       packages/ui             │
-              │      (@coss/ui)               │
+              │      (@flutman/ui)               │
               ├───────────────────────────────┤
               │ • 50+ Components              │
               │ • Shared Hooks                │
@@ -1593,7 +1593,7 @@ const customButton = cn(
                               ▼
               ┌───────────────────────────────┐
               │   packages/typescript-config  │
-              │    (@coss/typescript-config)  │
+              │    (@flutman/typescript-config)  │
               └───────────────────────────────┘
 ```
 
@@ -1638,8 +1638,8 @@ const customButton = cn(
 ## 📞 সাপোর্ট এবং রিসোর্স
 
 ### অফিসিয়াল লিংক:
-- **ওয়েবসাইট:** https://coss.com
-- **UI ডকুমেন্টেশন:** https://coss.com/ui
+- **ওয়েবসাইট:** https://flutman.com
+- **UI ডকুমেন্টেশন:** https://flutman.com/ui
 - **cal.com:** https://cal.com
 - **GitHub:** https://github.com/cosscom
 
@@ -1651,10 +1651,10 @@ const customButton = cn(
 
 ## 🎓 পরিশিষ্ট
 
-এই ডকুমেন্টেশনে coss.com প্রোজেক্টের সম্পূর্ণ A থেকে Z বিশ্লেষণ অন্তর্ভুক্ত করা হয়েছে। এই প্রোজেক্ট একটি সophisticated মনোরেপো যা আধুনিক React, Next.js, এবং Tailwind CSS ব্যবহার করে একটি শক্তিশালী UI কম্পোনেন্ট লাইব্রেরি তৈরি করেছে।
+এই ডকুমেন্টেশনে flutman.com প্রোজেক্টের সম্পূর্ণ A থেকে Z বিশ্লেষণ অন্তর্ভুক্ত করা হয়েছে। এই প্রোজেক্ট একটি সophisticated মনোরেপো যা আধুনিক React, Next.js, এবং Tailwind CSS ব্যবহার করে একটি শক্তিশালী UI কম্পোনেন্ট লাইব্রেরি তৈরি করেছে।
 
 **সংক্ষিপ্ত তথ্য:**
-- **প্রোজেক্ট নাম:** coss.com (পূর্বে Origin UI)
+- **প্রোজেক্ট নাম:** flutman.com (পূর্বে Origin UI)
 - **প্রধান কোম্পানি:** cal.com এর হোল্ডিং কোম্পানি
 - **টেক স্ট্যাক:** Next.js 16, React 19, TypeScript 5.9, Tailwind CSS 4, Bun
 - **আর্কিটেকচার:** Turborepo মনোরেপো

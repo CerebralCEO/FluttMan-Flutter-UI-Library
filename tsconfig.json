@@ -10,13 +10,13 @@
     "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
-      "@coss/ui/*": ["packages/ui/src/*"]
+      "@flutman/ui/*": ["packages/ui/src/*"]
     },
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
   },
-  "display": "coss",
+  "display": "flutman",
   "exclude": ["node_modules", "dist"],
   "references": [{ "path": "packages/ui" }]
 }

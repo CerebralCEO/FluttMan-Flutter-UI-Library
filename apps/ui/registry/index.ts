@@ -8,7 +8,7 @@ import { styles } from "@/registry/registry-styles";
 import { ui } from "@/registry/registry-ui";
 
 export const registry = {
-  homepage: "https://flutman",
+  homepage: "https://flutman.vercel.app",
   items: [
     ...ui,
     ...(particles as Registry["items"]),

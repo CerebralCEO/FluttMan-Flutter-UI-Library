@@ -23,7 +23,7 @@ export default function Particle() {
     <InputGroup>
       <InputGroupInput
         aria-label="Url"
-        defaultValue="https://coss.com"
+        defaultValue="https://flutman.com"
         ref={inputRef}
         type="text"
       />

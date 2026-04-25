@@ -5,10 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages = source.getPages();
 
   return [
-    { url: "https://flutman" },
-    { url: "https://flutman/particles" },
+    { url: "https://flutman.vercel.app" },
+    { url: "https://flutman.vercel.app/particles" },
     ...pages.map((page) => ({
-      url: `https://flutman${page.url}`,
+      url: `https://flutman.vercel.app${page.url}`,
     })),
   ];
 }

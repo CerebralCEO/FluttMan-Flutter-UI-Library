@@ -1,4 +1,7 @@
 {
-  "pages": ["[llms.txt](/llms.txt)", "[flutman origin](https://flutman)"],
+  "pages": [
+    "[llms.txt](/llms.txt)",
+    "[flutman origin](https://flutman.vercel.app)"
+  ],
   "title": "Resources"
 }

@@ -1,5 +1,5 @@
 {
-  "homepage": "https://coss.com",
+  "homepage": "https://flutman.vercel.app",
   "items": [
     {
       "name": "ui",
@@ -11456,5 +11456,5 @@
       "type": "registry:hook"
     }
   ],
-  "name": "coss ui"
+  "name": "flutman ui"
 }
