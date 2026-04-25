@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "react-day-picker": "^9.13.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.10",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "turbo": "^2.6.1",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
+  },
+  "license": "AGPL-3.0-or-later",
+  "name": "flutman",
+  "packageManager": "pnpm@9.15.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf .turbo && rm -rf node_modules",
+    "dev": "turbo run dev",
+    "format": "biome format --write .",
+    "format:all": "biome check --write --unsafe --no-errors-on-unmatched",
+    "lint": "turbo run lint --",
+    "prepare": "husky",
+    "test": "pnpm test --pass-with-no-tests",
+    "typecheck": "turbo run typecheck"
+  },
+  "version": "0.0.1",
+  "workspaces": [
+    "apps/ui",
+    "packages/*"
+  ]
+}

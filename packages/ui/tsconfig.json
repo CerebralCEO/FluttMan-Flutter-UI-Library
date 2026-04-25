@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,
+    "incremental": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@flutman/ui/*": ["./src/*"]
+    },
+    "types": ["next", "react", "node", "bun-types"]
+  },
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"],
+  "extends": "@flutman/typescript-config/react-library.json",
+  "include": ["."]
+}

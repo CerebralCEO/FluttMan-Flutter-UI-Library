@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "paths": {
+      "@/*": ["./*"],
+      "@flutman/ui/*": ["../../packages/ui/src/*"],
+      "@source/*": ["./.source/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "extends": "@flutman/typescript-config/nextjs.json",
+  "include": [
+    "next-env.d.ts",
+    "next.config.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ]
+}
