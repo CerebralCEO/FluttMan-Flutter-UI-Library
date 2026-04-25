@@ -2,11 +2,12 @@ import 'package:args/args.dart';
 import 'package:flutman_cli/commands/init.dart';
 import 'package:flutman_cli/commands/add.dart';
 
-void main(List<String> arguments) {
+Future<void> main(List<String> arguments) async {
   final parser = ArgParser()
     ..addCommand('init')
     ..addCommand('add')
-    ..addFlag('help', abbr: 'h', negatable: false, help: 'Show help information')
+    ..addFlag('help',
+        abbr: 'h', negatable: false, help: 'Show help information')
     ..addFlag('version', abbr: 'v', negatable: false, help: 'Show version');
 
   try {
@@ -38,7 +39,7 @@ void main(List<String> arguments) {
         break;
       case 'add':
         final addCommand = AddCommand();
-        addCommand.execute(command.arguments);
+        await addCommand.execute(command.arguments);
         break;
       default:
         print('Error: Unknown command "${command.name}"');

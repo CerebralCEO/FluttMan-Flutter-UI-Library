@@ -1,10 +1,17 @@
+import 'dart:io';
 import 'package:args/args.dart';
+import 'package:path/path.dart' as path;
+import '../utils/logger.dart';
+import '../utils/file_helper.dart';
+import '../utils/api_client.dart';
 
 class AddCommand {
-  void execute(List<String> arguments) {
+  Future<void> execute(List<String> arguments) async {
     final parser = ArgParser()
-      ..addFlag('help', abbr: 'h', negatable: false, help: 'Show help for add command')
-      ..addFlag('overwrite', abbr: 'o', negatable: false, help: 'Overwrite existing components')
+      ..addFlag('help',
+          abbr: 'h', negatable: false, help: 'Show help for add command')
+      ..addFlag('overwrite',
+          abbr: 'o', negatable: false, help: 'Overwrite existing components')
       ..addOption('dir', abbr: 'd', help: 'Custom components directory');
 
     final results = parser.parse(arguments);
@@ -17,8 +24,8 @@ class AddCommand {
     final components = results.rest;
 
     if (components.isEmpty) {
-      print('Error: No components specified.');
-      print('');
+      Logger.error('No components specified.');
+      Logger.newLine();
       _printHelp();
       return;
     }
@@ -26,30 +33,104 @@ class AddCommand {
     final overwrite = results['overwrite'] as bool;
     final customDir = results['dir'] as String?;
 
-    print('Adding component(s): ${components.join(", ")}');
-    print('');
+    try {
+      FileHelper.verifyFlutterProject();
 
-    if (overwrite) {
-      print('Overwrite mode: enabled');
+      Logger.info('Adding component(s): ${components.join(", ")}');
+      Logger.newLine();
+
+      if (overwrite) {
+        Logger.warning('Overwrite mode: enabled');
+        Logger.newLine();
+      }
+
+      final componentsDir = customDir ?? FileHelper.getComponentsDir();
+      FileHelper.createDirectory(componentsDir);
+
+      final Set<String> allDependencies = {};
+
+      for (final componentName in components) {
+        await _addComponent(
+            componentName, componentsDir, overwrite, allDependencies);
+      }
+
+      if (allDependencies.isNotEmpty) {
+        Logger.newLine();
+        Logger.info('Installing dependencies...');
+        await _installDependencies(allDependencies);
+      }
+
+      Logger.newLine();
+      Logger.success('All components added successfully!');
+      Logger.newLine();
+      Logger.hint('Import in your Dart files:');
+      for (final component in components) {
+        final fileName = _toSnakeCase(component);
+        Logger.hint('  import \'$componentsDir/$fileName.dart\';');
+      }
+    } catch (e) {
+      Logger.error('Failed to add components: $e');
+      exit(1);
     }
+  }
 
-    if (customDir != null) {
-      print('Custom directory: $customDir');
+  Future<void> _addComponent(
+    String componentName,
+    String componentsDir,
+    bool overwrite,
+    Set<String> allDependencies,
+  ) async {
+    try {
+      Logger.info('Fetching $componentName...');
+      final componentData = await ApiClient.fetchComponent(componentName);
+
+      final code = componentData['code'] as String?;
+      final dependencies =
+          (componentData['dependencies'] as List<dynamic>?)?.cast<String>() ??
+              [];
+      final fileName = componentData['fileName'] as String? ??
+          '${_toSnakeCase(componentName)}.dart';
+
+      if (code == null || code.isEmpty) {
+        Logger.error('No code received for $componentName');
+        return;
+      }
+
+      final filePath = path.join(componentsDir, fileName);
+      FileHelper.writeDartFile(filePath, code, overwrite: overwrite);
+
+      allDependencies.addAll(dependencies.where((d) => d != 'flutter'));
+      Logger.success('Added: $componentName');
+    } catch (e) {
+      Logger.error('Failed to add $componentName: $e');
     }
+  }
 
-    print('');
+  Future<void> _installDependencies(Set<String> dependencies) async {
+    for (final dep in dependencies) {
+      try {
+        Logger.info('Running: flutter pub add $dep');
+        final result = await Process.run(
+          'flutter',
+          ['pub', 'add', dep],
+          runInShell: true,
+        );
 
-    for (final component in components) {
-      print('  Fetching $component...');
-      print('  Writing to lib/components/flutman_$component.dart...');
-      print('  Added: $component');
-      print('');
+        if (result.exitCode == 0) {
+          Logger.success('Added dependency: $dep');
+        } else {
+          Logger.warning('Failed to add $dep: ${result.stderr}');
+          Logger.hint('Run manually: flutter pub add $dep');
+        }
+      } catch (e) {
+        Logger.warning('Could not run flutter pub add $dep: $e');
+        Logger.hint('Run manually: flutter pub add $dep');
+      }
     }
+  }
 
-    print('All components added successfully!');
-    print('');
-    print('Import in your Dart files:');
-    print('  import "components/flutman_${components.first}.dart";');
+  String _toSnakeCase(String input) {
+    return input.toLowerCase().replaceAll(' ', '_');
   }
 
   void _printHelp() {
