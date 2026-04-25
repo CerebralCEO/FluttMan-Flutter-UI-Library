@@ -1,3 +1,5 @@
+import fs from "node:fs/promises";
+import path from "node:path";
 import { Index } from "@/registry/__index__";
 import { ComponentPreviewTabs } from "@/components/component-preview-tabs";
 import { ComponentSource } from "@/components/component-source";
@@ -11,7 +13,14 @@ interface ComponentPreviewProps
   hideCode?: boolean;
 }
 
-export function ComponentPreview({
+// Extract base component name from particle names (e.g., p-button-1 -> button)
+function getBaseComponentName(particleName: string): string {
+  // Match pattern: p-{component}-{number} or p-{component}
+  const match = particleName.match(/^p-(.+?)(?:-\d+)?$/);
+  return match?.[1] ?? particleName;
+}
+
+export async function ComponentPreview({
   name,
   className,
   align = "center",
@@ -33,6 +42,26 @@ export function ComponentPreview({
     );
   }
 
+  // Try to read Dart code from registry/flutter/
+  const baseName = getBaseComponentName(name);
+  const dartFilePath = path.join(
+    process.cwd(),
+    "registry",
+    "flutter",
+    baseName,
+    `${baseName}.dart`,
+  );
+
+  let dartCode: string | undefined;
+  let useDart = false;
+
+  try {
+    dartCode = await fs.readFile(dartFilePath, "utf-8");
+    useDart = true;
+  } catch {
+    // Dart file doesn't exist, will fall back to React code
+  }
+
   return (
     <ComponentPreviewTabs
       align={align}
@@ -40,7 +69,19 @@ export function ComponentPreview({
       component={<Component />}
       hideCode={hideCode}
       name={name}
-      source={<ComponentSource collapsible={false} name={name} />}
+      source={
+        useDart ? (
+          <ComponentSource
+            collapsible={false}
+            language="dart"
+            name={baseName}
+            src={undefined}
+            title={`${baseName}.dart`}
+          />
+        ) : (
+          <ComponentSource collapsible={false} name={name} />
+        )
+      }
       {...props}
     />
   );

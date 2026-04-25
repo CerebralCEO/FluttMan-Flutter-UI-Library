@@ -27,14 +27,22 @@ export async function ComponentSource({
   let code: string | undefined;
   let lang = language ?? "tsx";
 
+  // Extract base component name from particle names (e.g., p-button-1 -> button)
+  const getBaseComponentName = (particleName: string): string => {
+    // Match pattern: p-{component}-{number} or p-{component}
+    const match = particleName.match(/^p-(.+?)(?:-\d+)?$/);
+    return match?.[1] ?? particleName;
+  };
+
   // Try to read Dart code from registry/flutter/ first
   if (name) {
+    const baseName = getBaseComponentName(name);
     const dartFilePath = path.join(
       process.cwd(),
       "registry",
       "flutter",
-      name,
-      `${name}.dart`,
+      baseName,
+      `${baseName}.dart`,
     );
 
     try {
