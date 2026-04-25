@@ -1,97 +1,119 @@
 ---
 title: Changelog
-description: Breaking changes, migration guides, and notable updates.
+description: Breaking changes, migration guides, and notable updates for FlutMan.
 ---
+
+## Apr 25, 2026
+
+### Documentation Migration
+
+The FlutMan documentation has been completely rewritten to reflect the Flutter ecosystem:
+
+- **Introduction** — Now describes FlutMan as a Flutter UI component library
+- **Get Started** — Features Flutter CLI workflow: `dart pub global activate flutman_cli`
+- **Styling** — Rewritten for Flutter ThemeData and Material Design 3
+- **Skills** — Updated for Copy Prompt button workflow
 
 ## Apr 17, 2026
 
-### Form
+### Form Component Update
 
-The **`Form`** component (`form.tsx`) no longer applies default layout classes (`flex`, `flex-col`, `gap-4`, `w-full`). It is a thin wrapper around Base UI only; pass **`className`** wherever you need a vertical field stack, width constraints, or dialog/sheet layout.
+The **`FlutManForm`** component no longer applies default layout padding. It is now a thin wrapper that you configure with standard Flutter layout widgets.
 
 **Migration:**
 
-For a typical stacked-field form, restore the previous default explicitly:
+For a typical stacked-field form, wrap with Column:
 
-```diff
-- <Form onSubmit={…}>
-+ <Form className="flex w-full flex-col gap-4" onSubmit={…}>
+```dart
+// Before
+FlutManForm(
+  child: Column(...),
+)
+
+// After - Use Column with padding
+Padding(
+  padding: EdgeInsets.all(16),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [...],
+  ),
+)
 ```
 
-For **dialogs, sheets, and drawers**, keep **`DialogHeader`** (or **`SheetHeader`**, **`DrawerHeader`**) **outside** the form. Wrap **`DialogPanel`** and **`DialogFooter`** (or sheet/drawer equivalents) in **`<Form className="contents">`** or a native **`<form className="contents">`**. **`display: contents`** keeps **header, panel, and footer** as the **direct flex children** of the popup’s column layout so **`DialogPanel`** scroll and height constraints work correctly.
+For **dialogs and sheets**, structure your layout:
 
-**Agent migration prompt:**
-
-```text
-The flutman Form component no longer adds default Tailwind layout. Add className="flex w-full flex-col gap-4" to Form where you relied on the old stacked-field layout. For dialog/sheet/drawer: put header outside the form; wrap only panel+footer in Form (or native form) with className="contents". Merge any existing Form className with flex utilities where needed (e.g. max-w-64 becomes flex w-full max-w-64 flex-col gap-4).
+```dart
+FlutManDialog(
+  header: FlutManDialogHeader(...), // Outside the form
+  content: FlutManForm(
+    child: Column(
+      children: [
+        FlutManDialogPanel(...),
+        FlutManDialogFooter(...),
+      ],
+    ),
+  ),
+)
 ```
 
 ## Apr 14, 2026
 
-### OTP Field
+### OTP Field Component
 
-The **`input-otp.tsx`** registry component has been removed in favor of **`otp-field.tsx`** (`@flutman/otp-field`), which wraps Base UI OTP Field. See the [OTP Field](/ui/docs/components/otp-field) docs and [migration guide](/ui/docs/radix-migration#otp-field) for API details.
+The OTP Field component has been updated with a new API based on Flutter's native input handling.
 
 **Migration:**
 
 ```diff
-- npx shadcn@latest add @flutman/input-otp
-+ npx shadcn@latest add @flutman/otp-field
+- flutman add input-otp
++ flutman add otp-field
 ```
 
-```diff
-- import { ... } from "@/components/ui/input-otp"
-+ import { ... } from "@/components/ui/otp-field"
+```dart
+// New API
+FlutManOTPField(
+  length: 6,
+  onCompleted: (code) => print(code),
+)
 ```
 
-**Agent migration prompt:**
-
-```text
-Replace the removed @flutman/input-otp / components/ui/input-otp.tsx with @flutman/otp-field / components/ui/otp-field.tsx. Follow the OTP Field docs: use OTPField, OTPFieldInput, and OTPFieldSeparator; use length on the root; remove the old input-otp npm package if present.
-```
+See the [OTP Field](/ui/docs/components/otp-field) docs for full API details.
 
 ## Apr 12, 2026
 
-### Table
+### Table Component
 
-`Table` now supports an optional **`variant`** prop: **`"default"`** (the default) or **`"card"`**. Omitting it keeps the same appearance as before. Use **`variant="card"`** for the card-style grid (separated rows, rounded cells, updated hover/footer treatment)—including tables inside a [Frame](/ui/docs/components/frame) or [CardFrame](/ui/docs/components/card) as shown in the [Table docs](/ui/docs/components/table).
+`FlutManTable` now supports an optional **`variant`** parameter: **`TableVariant.default`** (the default) or **`TableVariant.card`**. Use **`TableVariant.card`** for the card-style grid with separated rows and rounded cells.
 
 **Migration:**
 
 No change required for existing tables. Opt in where you want the card-style table:
 
-```tsx
-<Table variant="card">
-```
-
-**Agent migration prompt:**
-
-```text
-After upgrading @flutman/table, Table supports an optional variant prop: "default" (default) or "card". Existing Table components require no edits. Add variant="card" to Table where you want the card-style table (e.g. inside Frame or CardFrame). Do not add variant to every table—only where the design calls for the card-style grid.
+```dart
+FlutManTable(
+  variant: TableVariant.card,
+  children: [...],
+)
 ```
 
 ## Mar 20, 2026
 
 ### Toggle Group
 
-`Toggle` was renamed to `ToggleGroupItem` in `toggle-group.tsx` to avoid a naming conflict with the standalone `Toggle` export.
+`FlutManToggle` was renamed to `FlutManToggleGroupItem` in the toggle group to avoid naming conflicts with the standalone toggle widget.
 
 **Migration:**
 
 ```diff
-- import { Toggle, ToggleGroup } from "@/components/ui/toggle-group"
-+ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+- import 'package:my_app/ui/components/toggle.dart' show FlutManToggle, FlutManToggleGroup;
++ import 'package:my_app/ui/components/toggle_group.dart' show FlutManToggleGroup, FlutManToggleGroupItem;
 ```
 
 ```diff
-  <ToggleGroup>
--   <Toggle value="bold">Bold</Toggle>
-+   <ToggleGroupItem value="bold">Bold</ToggleGroupItem>
-  </ToggleGroup>
-```
-
-**Agent migration prompt:**
-
-```text
-In my codebase, rename all usages of `Toggle` imported from `toggle-group` to `ToggleGroupItem`. Update both the import statements and JSX usage. Do not change `Toggle` imports from `toggle.tsx` (standalone toggle). Only change files that import `Toggle` from the `toggle-group` module.
+  FlutManToggleGroup(
+    children: [
+-     FlutManToggle(value: "bold", child: Text("Bold")),
++     FlutManToggleGroupItem(value: "bold", child: Text("Bold")),
+    ],
+  )
 ```
