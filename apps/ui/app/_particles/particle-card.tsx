@@ -10,10 +10,10 @@ import {
   DrawerPopup,
   DrawerTrigger,
 } from "@/registry/default/ui/drawer";
-import { CopyAgentPrompt } from "./copy-agent-prompt";
 import { ParticleCardContainer } from "./particle-card-container";
 import { CodeBlockCommand } from "@/components/code-block-command";
 import { ComponentSource } from "@/components/component-source";
+import { CopyAgentPrompt } from "@/components/copy-agent-prompt";
 import { CopyRegistry } from "@/components/copy-registry";
 import { getRegistryItem } from "@/lib/registry";
 
@@ -84,7 +84,7 @@ export async function ParticleCard({
               value={`${flutmanUrl}/r/${name}.json`}
               variant="outline"
             />
-            <CopyAgentPrompt name={name} variant="outline" />
+            <CopyAgentPrompt componentName={name} variant="outline" />
             <Drawer position="right">
               <DrawerTrigger
                 render={
