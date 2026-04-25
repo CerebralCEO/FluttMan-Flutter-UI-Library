@@ -541,6 +541,129 @@ export const fontHeading = localFont({
 
 ---
 
+## 🖼️ কম্পোনেন্ট প্রিভিউ সিস্টেম (হোমপেইজ কার্ড থাম্বনেইল)
+
+### কীভাবে কাজ করে?
+
+হোমপেইজে প্রতিটি কম্পোনেন্ট কার্ডের ভেতরে যে প্রিভিউ দেখা যায়, সেটা একটি **থাম্বনেইল সিস্টেম** এর মাধ্যমে তৈরি করা হয়েছে। এটি রিয়েল কম্পোনেন্ট নয়, বরং JSX দিয়ে তৈরি static UI রিপ্রেজেন্টেশন।
+
+### ফাইল স্ট্রাকচার
+
+```
+apps/ui/components/category-thumbnails.tsx    # থাম্বনেইল কম্পোনেন্টস
+apps/ui/app/page.tsx                           # হোমপেইজ (কার্ড গ্রিড)
+```
+
+### থাম্বনেইল তৈরির প্রক্রিয়া
+
+**1. বেইজ কম্পোনেন্টস:**
+```typescript
+// category-thumbnails.tsx
+function Icon({ icon: IconComponent }) {
+  return <IconComponent className="size-4 text-muted-foreground/88" />;
+}
+
+function Text({ variant = "main" }) {
+  const bgColor = variant === "main" ? "bg-muted-foreground/40" : "bg-muted-foreground/20";
+  return <div className={cn("h-1.5 rounded-full", bgColor)} />;
+}
+
+function Card({ children, withGradient = true }) {
+  return (
+    <div className="relative flex w-full max-w-72 flex-col rounded-2xl border shadow-md/5 ...">
+      {children}
+    </div>
+  );
+}
+```
+
+**2. কম্পোনেন্ট থাম্বনেইল:**
+```typescript
+// Accordion থাম্বনেইল
+export const accordionThumbnail = (
+  <Card className="max-w-50">
+    <CardPanel className="divide-y divide-border p-0">
+      <div className="p-3">
+        <div className="flex items-center gap-2">
+          <Icon icon={ChevronDownIcon} />
+          <Text className="w-[60%]" />
+        </div>
+      </div>
+      <div className="p-3">
+        <div className="flex items-center gap-2">
+          <Icon className="rotate-180" icon={ChevronDownIcon} />
+          <div className="flex flex-1 flex-col gap-2">
+            <Text className="w-[50%]" variant="main" />
+            <Text className="w-[90%]" variant="secondary" />
+          </div>
+        </div>
+      </div>
+    </CardPanel>
+  </Card>
+);
+
+// Button থাম্বনেইল
+export const buttonThumbnail = (
+  <Card className="max-w-24 border-none bg-linear-to-b from-(--btn-from) to-(--btn-to) [--radius-2xl:14px]"
+    withGradient={false}>
+    <CardPanel className="px-6 py-4">
+      <Text className="bg-primary-foreground/40" />
+    </CardPanel>
+  </Card>
+);
+```
+
+**3. থাম্বনেইল ম্যাপ:**
+```typescript
+export const categoryThumbnails: Record<string, ReactNode> = {
+  accordion: accordionThumbnail,
+  alert: alertThumbnail,
+  "alert-dialog": alertDialogThumbnail,
+  autocomplete: autocompleteThumbnail,
+  avatar: avatarThumbnail,
+  // ... আরও ৫০+ কম্পোনেন্ট
+};
+
+export function getCategoryThumbnail(slug: string): ReactNode | undefined {
+  return categoryThumbnails[slug];
+}
+```
+
+### হোমপেইজে ব্যবহার
+
+```typescript
+// apps/ui/app/page.tsx
+import { getCategoryThumbnail } from "@/components/category-thumbnails";
+import { categories } from "@/config/categories";
+
+export default function Page() {
+  return (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {categories.map((category) => (
+        <CategoryCard
+          key={category.slug}
+          name={category.name}
+          slug={category.slug}
+          description={category.description}
+          thumbnail={getCategoryThumbnail(category.slug)}  // থাম্বনেইল পাস
+        />
+      ))}
+    </div>
+  );
+}
+```
+
+### কেন এভাবে করা হয়েছে?
+
+| পদ্ধতি | সুবিধা | অসুবিধা |
+|--------|--------|---------|
+| **থাম্বনেইল (বর্তমান)** | ⚡ দ্রুত লোড, 🎨 কাস্টমাইজড look, 🪶 হালকা | ❌ রিয়েল ইন্টারঅ্যাকশন নেই |
+| **রিয়েল কম্পোনেন্ট** | ✅ আসল behavior দেখা যায় | 🐌 স্লো লোড, 🔧 কমপ্লেক্স |
+
+থাম্বনেইলগুলো **Lucide React Icons** এবং **Tailwind CSS** দিয়ে তৈরি, যা কম্পোনেন্টের মূল বৈশিষ্ট্য visual representation দেয়।
+
+---
+
 ## 🧩 UI কম্পোনেন্ট বিশ্লেষণ
 
 ### 1. Button কম্পোনেন্ট

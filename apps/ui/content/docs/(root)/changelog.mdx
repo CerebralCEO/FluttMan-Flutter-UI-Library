@@ -23,20 +23,20 @@ For **dialogs, sheets, and drawers**, keep **`DialogHeader`** (or **`SheetHeader
 **Agent migration prompt:**
 
 ```text
-The coss Form component no longer adds default Tailwind layout. Add className="flex w-full flex-col gap-4" to Form where you relied on the old stacked-field layout. For dialog/sheet/drawer: put header outside the form; wrap only panel+footer in Form (or native form) with className="contents". Merge any existing Form className with flex utilities where needed (e.g. max-w-64 becomes flex w-full max-w-64 flex-col gap-4).
+The flutman Form component no longer adds default Tailwind layout. Add className="flex w-full flex-col gap-4" to Form where you relied on the old stacked-field layout. For dialog/sheet/drawer: put header outside the form; wrap only panel+footer in Form (or native form) with className="contents". Merge any existing Form className with flex utilities where needed (e.g. max-w-64 becomes flex w-full max-w-64 flex-col gap-4).
 ```
 
 ## Apr 14, 2026
 
 ### OTP Field
 
-The **`input-otp.tsx`** registry component has been removed in favor of **`otp-field.tsx`** (`@coss/otp-field`), which wraps Base UI OTP Field. See the [OTP Field](/ui/docs/components/otp-field) docs and [migration guide](/ui/docs/radix-migration#otp-field) for API details.
+The **`input-otp.tsx`** registry component has been removed in favor of **`otp-field.tsx`** (`@flutman/otp-field`), which wraps Base UI OTP Field. See the [OTP Field](/ui/docs/components/otp-field) docs and [migration guide](/ui/docs/radix-migration#otp-field) for API details.
 
 **Migration:**
 
 ```diff
-- npx shadcn@latest add @coss/input-otp
-+ npx shadcn@latest add @coss/otp-field
+- npx shadcn@latest add @flutman/input-otp
++ npx shadcn@latest add @flutman/otp-field
 ```
 
 ```diff
@@ -47,7 +47,7 @@ The **`input-otp.tsx`** registry component has been removed in favor of **`otp-f
 **Agent migration prompt:**
 
 ```text
-Replace the removed @coss/input-otp / components/ui/input-otp.tsx with @coss/otp-field / components/ui/otp-field.tsx. Follow the OTP Field docs: use OTPField, OTPFieldInput, and OTPFieldSeparator; use length on the root; remove the old input-otp npm package if present.
+Replace the removed @flutman/input-otp / components/ui/input-otp.tsx with @flutman/otp-field / components/ui/otp-field.tsx. Follow the OTP Field docs: use OTPField, OTPFieldInput, and OTPFieldSeparator; use length on the root; remove the old input-otp npm package if present.
 ```
 
 ## Apr 12, 2026
@@ -67,7 +67,7 @@ No change required for existing tables. Opt in where you want the card-style tab
 **Agent migration prompt:**
 
 ```text
-After upgrading @coss/table, Table supports an optional variant prop: "default" (default) or "card". Existing Table components require no edits. Add variant="card" to Table where you want the card-style table (e.g. inside Frame or CardFrame). Do not add variant to every table—only where the design calls for the card-style grid.
+After upgrading @flutman/table, Table supports an optional variant prop: "default" (default) or "card". Existing Table components require no edits. Add variant="card" to Table where you want the card-style table (e.g. inside Frame or CardFrame). Do not add variant to every table—only where the design calls for the card-style grid.
 ```
 
 ## Mar 20, 2026

@@ -5,10 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages = source.getPages();
 
   return [
-    { url: "https://coss.com/ui" },
-    { url: "https://coss.com/ui/particles" },
+    { url: "https://flutman" },
+    { url: "https://flutman/particles" },
     ...pages.map((page) => ({
-      url: `https://coss.com/ui${page.url}`,
+      url: `https://flutman${page.url}`,
     })),
   ];
 }
