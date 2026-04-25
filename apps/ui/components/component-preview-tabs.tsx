@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Tabs, TabsList, TabsTab } from "@/registry/default/ui/tabs";
+import { CopyAgentPrompt } from "@/components/copy-agent-prompt";
 import { cn } from "@/lib/utils";
 
 export function ComponentPreviewTabs({
@@ -10,12 +11,14 @@ export function ComponentPreviewTabs({
   hideCode = false,
   component,
   source,
+  name,
   ...props
 }: React.ComponentProps<"div"> & {
   align?: "center" | "start" | "end";
   hideCode?: boolean;
   component: React.ReactNode;
   source: React.ReactNode;
+  name: string;
 }) {
   const [tab, setTab] = React.useState("preview");
 
@@ -36,6 +39,7 @@ export function ComponentPreviewTabs({
               </TabsTab>
             </TabsList>
           )}
+          <CopyAgentPrompt componentName={name} variant="outline" />
         </div>
       </Tabs>
       <div

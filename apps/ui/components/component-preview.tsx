@@ -39,6 +39,7 @@ export function ComponentPreview({
       className={cn(metaClassName, className)}
       component={<Component />}
       hideCode={hideCode}
+      name={name}
       source={<ComponentSource collapsible={false} name={name} />}
       {...props}
     />
