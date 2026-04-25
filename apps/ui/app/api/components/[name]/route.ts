@@ -50,10 +50,10 @@ export async function GET(
       const mdxContent = await fs.readFile(mdxFilePath, "utf-8");
       // Parse frontmatter for dependencies
       const frontmatterMatch = mdxContent.match(/---\n([\s\S]*?)\n---/);
-      if (frontmatterMatch) {
+      if (frontmatterMatch?.[1]) {
         const frontmatter = frontmatterMatch[1];
         const depsMatch = frontmatter.match(/dependencies:\s*\[(.*?)\]/);
-        if (depsMatch) {
+        if (depsMatch?.[1]) {
           dependencies = depsMatch[1]
             .split(",")
             .map((d) => d.trim().replace(/['"]/g, ""))
