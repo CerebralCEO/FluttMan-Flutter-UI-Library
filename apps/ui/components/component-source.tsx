@@ -25,10 +25,27 @@ export async function ComponentSource({
   }
 
   let code: string | undefined;
+  let lang = language ?? "tsx";
 
+  // Try to read Dart code from registry/flutter/ first
   if (name) {
-    const item = await getRegistryItem(name);
-    code = item?.files?.[0]?.content;
+    const dartFilePath = path.join(
+      process.cwd(),
+      "registry",
+      "flutter",
+      name,
+      `${name}.dart`,
+    );
+
+    try {
+      const dartFile = await fs.readFile(dartFilePath, "utf-8");
+      code = dartFile;
+      lang = "dart";
+    } catch {
+      // Dart file doesn't exist, fall back to registry
+      const item = await getRegistryItem(name);
+      code = item?.files?.[0]?.content;
+    }
   }
 
   if (src) {
@@ -40,7 +57,10 @@ export async function ComponentSource({
     return null;
   }
 
-  const lang = language ?? title?.split(".").pop() ?? "tsx";
+  // Use detected language or fallback to file extension/tsx
+  if (!language) {
+    lang = lang ?? title?.split(".").pop() ?? "tsx";
+  }
 
   if (!collapsible) {
     return (
