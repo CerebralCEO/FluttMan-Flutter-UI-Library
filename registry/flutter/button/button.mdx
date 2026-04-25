@@ -1,0 +1,55 @@
+---
+title: Button
+description: A customizable button component for Flutter applications
+version: 0.1.0
+dependencies: []
+---
+
+# FlutManButton
+
+A versatile button component with multiple variants and sizes.
+
+## Features
+
+- 5 variants: primary, secondary, destructive, outline, ghost
+- 3 sizes: sm, md, lg
+- Loading state support
+- Disabled state support
+- Custom child widget support
+
+## Installation
+
+```bash
+flutman add button
+```
+
+## Usage
+
+### Basic
+
+```dart
+FlutManButton(
+  label: 'Click me',
+  onPressed: () => print('Pressed!'),
+)
+```
+
+### With Variant
+
+```dart
+FlutManButton(
+  label: 'Delete',
+  variant: ButtonVariant.destructive,
+  onPressed: () => deleteItem(),
+)
+```
+
+### Loading State
+
+```dart
+FlutManButton(
+  label: 'Save',
+  isLoading: isSaving,
+  onPressed: saveData,
+)
+```

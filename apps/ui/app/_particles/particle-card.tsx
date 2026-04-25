@@ -1,6 +1,8 @@
+import { useCopyToClipboard } from "@flutman/ui/hooks/use-copy-to-clipboard";
 import { Icons } from "@flutman/ui/shared/icons";
 import { InformationCircleIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { SparklesIcon } from "lucide-react";
 import { cache } from "react";
 import { Index } from "@/registry/__index__";
 import { Button } from "@/registry/default/ui/button";
@@ -10,6 +12,7 @@ import {
   DrawerPopup,
   DrawerTrigger,
 } from "@/registry/default/ui/drawer";
+import { CopyAgentPrompt } from "./copy-agent-prompt";
 import { ParticleCardContainer } from "./particle-card-container";
 import { CodeBlockCommand } from "@/components/code-block-command";
 import { ComponentSource } from "@/components/component-source";
@@ -83,6 +86,7 @@ export async function ParticleCard({
               value={`${flutmanUrl}/r/${name}.json`}
               variant="outline"
             />
+            <CopyAgentPrompt name={name} variant="outline" />
             <Drawer position="right">
               <DrawerTrigger
                 render={
@@ -104,10 +108,10 @@ export async function ParticleCard({
                     </h2>
                     <figure data-rehype-pretty-code-figure>
                       <CodeBlockCommand
-                        __bun__={`bunx --bun shadcn@latest add @flutman/${name}`}
-                        __npm__={`npx shadcn@latest add @flutman/${name}`}
-                        __pnpm__={`pnpm dlx shadcn@latest add @flutman/${name}`}
-                        __yarn__={`yarn dlx shadcn@latest add @flutman/${name}`}
+                        __bun__={`flutman add ${name}`}
+                        __npm__={`flutman add ${name}`}
+                        __pnpm__={`flutman add ${name}`}
+                        __yarn__={`flutman add ${name}`}
                       />
                     </figure>
                   </div>

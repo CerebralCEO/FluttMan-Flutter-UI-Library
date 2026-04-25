@@ -25,6 +25,7 @@ import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
 import { CodeTabs } from "@/components/code-tabs";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
+import { CopyAgentPrompt } from "@/components/copy-agent-prompt";
 import { MediaQueryDemo } from "@/components/media-query-demo";
 
 export const mdxComponents = {
@@ -56,6 +57,7 @@ export const mdxComponents = {
   ),
   CodeCollapsibleWrapper,
   CodeTabs,
+  CopyAgentPrompt,
   ComponentPreview,
   ComponentSource,
   code: ({
