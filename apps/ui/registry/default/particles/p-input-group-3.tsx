@@ -15,7 +15,7 @@ export default function Particle() {
         type="search"
       />
       <InputGroupAddon>
-        <InputGroupText>i.cal.com/</InputGroupText>
+        <InputGroupText>zerofounder.com/</InputGroupText>
       </InputGroupAddon>
     </InputGroup>
   );

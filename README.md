@@ -1,11 +1,11 @@
 ![flutman.com](https://github.com/user-attachments/assets/56dfe7f7-85b7-44ee-b89a-1c30c5c4a156)
 
-<h3 align="center">flutman.com (formerly Origin UI)</h3>
+<h3 align="center">flutman.com (formerly ZeroFounder)</h3>
 <p align="center">The <strong>everything but AI</strong> company.</p>
 
 ## About the Project
 
-flutman.com is the new holding company of [cal.com](https://cal.com), the pioneers of open source scheduling infrastructure. Our mission is to build a home for amazing open source projects, giving them the support they need to grow and succeed.
+flutman.com is the new holding company of [zerofounder.com](https://zerofounder.com), the pioneers of open source scheduling infrastructure. Our mission is to build a home for amazing open source projects, giving them the support they need to grow and succeed.
 
 We're building the flutman stack, a one line `npm install @flutman` package that includes everything you need to build your application, from email, SMS, calendar APIs, scheduling, video conferencing, notifications and more.
 
@@ -17,7 +17,7 @@ This repository contains multiple products and applications that make up the flu
 
 - **`apps/www/`** - Main flutman.com website
 - **`apps/ui/`** - flutman ui component library and documentation
-- **`apps/origin/`** - Legacy Origin UI components (pre-acquisition)
+- **`apps/origin/`** - Legacy ZeroFounder components (pre-acquisition)
 - **`packages/ui/`** - Shared UI components package
 - **`packages/typescript-config/`** - TypeScript configurations
 - **`biome.json`** - Shared Biome configuration for linting and formatting
@@ -112,11 +112,11 @@ bun run dev --filter=origin
 
 We think Base UI is the best foundation for modern web applications. We've taken its powerful, unstyled primitives and given them a design system that's ready to go, right out of the box.
 
-This is the component library we'll be progressively adopting for [cal.com](https://cal.com). We're building it in the open for anyone who wants to create beautiful, reliable user interfaces.
+This is the component library we'll be progressively adopting for [zerofounder.com](https://zerofounder.com). We're building it in the open for anyone who wants to create beautiful, reliable user interfaces.
 
-### Origin UI Acquisition
+### ZeroFounder Acquisition
 
-This repository also includes the **Origin UI** components as a legacy snapshot. Origin UI was a pre-acquisition collection of Radix-based, shadcn-style components that remains available for use, but with limited support and maintenance. Active development now focuses on the new [Particles](https://flutman.com/ui/particles) components built on the flutman ui primitives.
+This repository also includes the **ZeroFounder** components as a legacy snapshot. ZeroFounder was a pre-acquisition collection of Radix-based, shadcn-style components that remains available for use, but with limited support and maintenance. Active development now focuses on the new [Particles](https://flutman.vercel.app/particles) components built on the flutman ui primitives.
 
 ### Contributing to flutman ui
 

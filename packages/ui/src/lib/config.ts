@@ -5,7 +5,7 @@ export const siteConfig = {
 		twitter: "https://x.com/flutman",
 	},
 	name: "FlutMan",
-	ogImage: "https://flutman.dev/og.jpg",
+	ogImage: "https://flutman.vercel.app/og.jpg",
 	products: [
 		{
 			href: "/",
@@ -52,5 +52,5 @@ export const siteConfig = {
 			upcoming: true,
 		},
 	],
-	url: "https://flutman.dev",
+	url: "https://flutman.vercel.app",
 };

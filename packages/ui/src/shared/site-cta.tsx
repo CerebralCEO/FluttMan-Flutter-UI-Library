@@ -9,7 +9,7 @@ export function SiteCta() {
           render={
             // biome-ignore lint(a11y/useAnchorContent): knwon
             <a
-              href="https://i.cal.com/forms/0129f2a8-7b15-4850-b3fb-07944dfacb3c"
+              href="https://zerofounder.com/waitlist"
               rel="noreferrer"
               target="_blank"
             />
@@ -17,7 +17,10 @@ export function SiteCta() {
         >
           Join the waitlist
         </Button>
-        <Button render={<Link href="https://cal.com/jobs" />} variant="outline">
+        <Button
+          render={<Link href="https://zerofounder.com/jobs" />}
+          variant="outline"
+        >
           Join the company
         </Button>
       </div>

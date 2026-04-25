@@ -8,6 +8,6 @@ export const appConfig = {
       label: "Docs",
     },
   ],
-  ogImage: "https://flutman.dev/og.jpg",
-  url: "https://flutman.dev",
+  ogImage: "https://flutman.vercel.app/og.jpg",
+  url: "https://flutman.vercel.app",
 };

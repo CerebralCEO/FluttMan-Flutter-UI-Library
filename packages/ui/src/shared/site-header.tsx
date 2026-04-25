@@ -25,11 +25,11 @@ export function SiteHeader({
         <div className="-mt-0.5 flex shrink-0 items-center gap-1.5 font-heading text-2xl sm:text-[1.625em]">
           {isExternal ? (
             <a aria-label="Home" href={gatewayHome}>
-              flutman.dev
+              flutman
             </a>
           ) : (
             <Link aria-label="Home" href={gatewayHome}>
-              flutman.dev
+              flutman
             </Link>
           )}
           <ProductLabel

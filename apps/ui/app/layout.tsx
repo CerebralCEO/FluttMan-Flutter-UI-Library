@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   description:
     "FlutMan is a collection of accessible, and composable React components. Built on top of Base UI and styled with Tailwind CSS,",
-  metadataBase: new URL("https://flutman.dev"),
+  metadataBase: new URL("https://flutman.vercel.app"),
   title:
     "FlutMan - A new, modern UI component library built on top of Base UI. Built for developers and AI.",
 };

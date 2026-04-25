@@ -44,7 +44,8 @@ export async function ParticleCard({
   className?: string;
   colSpan?: number;
 }) {
-  const flutmanUrl = process.env.NEXT_PUBLIC_APP_URL || "https://flutman.dev";
+  const flutmanUrl =
+    process.env.NEXT_PUBLIC_APP_URL || "https://flutman.vercel.app";
 
   const particle = await getCachedRegistryItem(name);
 

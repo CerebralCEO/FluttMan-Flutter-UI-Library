@@ -1105,7 +1105,7 @@ export default {
 export const metadata: Metadata = {
   title: "FlutMan - A new, modern UI component library built on top of Base UI",
   description: "FlutMan is a collection of accessible, and composable React components. Built on top of Base UI and styled with Tailwind CSS",
-  metadataBase: new URL("https://flutman.dev"),
+  metadataBase: new URL("https://flutman.vercel.app"),
   openGraph: {
     title: "FlutMan UI",
     description: "Modern UI component library",
@@ -1127,13 +1127,13 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://flutman.dev",
+      url: "https://flutman.vercel.app",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://flutman.dev/particles",
+      url: "https://flutman.vercel.app/particles",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
@@ -1155,7 +1155,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://flutman.dev/sitemap.xml",
+    sitemap: "https://flutman.vercel.app/sitemap.xml",
   };
 }
 ```

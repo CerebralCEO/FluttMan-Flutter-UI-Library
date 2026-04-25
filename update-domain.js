@@ -22,7 +22,7 @@ const OldDomain = "flutman.vercel.app";
 // New domain (what to set) - Common values:
 //   "flutman.vercel.app"  - Vercel deployment
 //   "flutman.vercel.app"         - Custom domain
-//   "flutman.dev"         - Dev domain
+//   "flutman"         - Dev domain
 const NewDomain = "flutman.vercel.app";
 
 // BRAND NAME SETTINGS (for metadata, titles, descriptions)

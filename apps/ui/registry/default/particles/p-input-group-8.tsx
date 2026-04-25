@@ -23,7 +23,7 @@ export default function Particle() {
     <InputGroup>
       <InputGroupInput
         aria-label="Url"
-        defaultValue="https://flutman.com"
+        defaultValue="https://flutman.vercel.app"
         ref={inputRef}
         type="text"
       />

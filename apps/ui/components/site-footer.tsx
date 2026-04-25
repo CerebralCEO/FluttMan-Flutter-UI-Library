@@ -12,11 +12,11 @@ export function SiteFooter() {
         Built by and for the team of{" "}
         <a
           className="font-medium underline-offset-4 hover:underline"
-          href="https://cal.com"
+          href="https://zerofounder.com"
           rel="noopener noreferrer"
           target="_blank"
         >
-          Cal.com
+          ZeroFounder
         </a>
         , Inc. — the leading commercial open source company
         (&ldquo;flutman&rdquo;).

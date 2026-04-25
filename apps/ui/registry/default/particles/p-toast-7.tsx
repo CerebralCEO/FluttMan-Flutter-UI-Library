@@ -34,7 +34,7 @@ export default function Particle() {
   });
 
   function handleCopy() {
-    const url = "https://flutman.com";
+    const url = "https://flutman.vercel.app";
     copyToClipboard(url);
   }
 
