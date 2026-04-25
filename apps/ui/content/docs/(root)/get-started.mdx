@@ -1,129 +1,126 @@
 ---
 title: Get Started
-description: A quick guide to adding your first component.
+description: A quick guide to adding your first FlutMan component to your Flutter app.
 ---
 
-This guide provides the essentials for adding **flutman ui** components to your React application.
+This guide provides the essentials for adding **FlutMan** components to your Flutter application.
 
 ## Prerequisites
 
-Our components are built with [Tailwind CSS v4](https://tailwindcss.com). Before you begin, make sure you have a React project set up with Tailwind CSS.
+Before you begin, make sure you have:
+
+- **Flutter SDK** installed (version 3.0 or higher)
+- **Dart SDK** (comes with Flutter)
+- An existing Flutter project or create a new one with `flutter create my_app`
+
+## Installation
+
+FlutMan uses a CLI-based workflow to download components directly into your project. No packages to add to `pubspec.yaml`—just pure Dart code you own.
+
+### Step 1: Activate the CLI
+
+Install the FlutMan CLI globally using Dart's pub command:
+
+```bash
+dart pub global activate flutman_cli
+```
+
+This makes the `flutman` command available anywhere on your system.
+
+### Step 2: Initialize Your Project
+
+Navigate to your Flutter project root and initialize FlutMan:
+
+```bash
+flutman init
+```
+
+This command:
+- Creates the `lib/ui/components/` directory structure
+- Sets up the base theme configuration
+- Prepares your project for FlutMan components
+
+### Step 3: Add a Component
+
+Now you can add any component to your project. For example, to add a Button:
+
+```bash
+flutman add button
+```
+
+The CLI will:
+- Download the Button component Dart file to `lib/ui/components/`
+- Install any required dependencies to your `pubspec.yaml`
+- Run `flutter pub get` automatically
 
 ## Adding Components
 
-You can add components **automatically with the shadcn CLI** or **manually by copying the files**. Both methods work for primitives, particles, and atoms.
+### With the CLI (Recommended)
 
-### With the CLI
-
-Each component page provides a command to add it to your project automatically. The CLI will create the necessary files and install any dependencies for you.
-
-### New Project Setup (Recommended)
-
-For new projects, use the **flutman style** preset to initialize everything in one command:
+Each component page provides a command to add it to your project automatically. The CLI handles everything—file creation, dependency management, and project setup.
 
 ```bash
-npx shadcn@latest init @flutman/style
+flutman add <component-name>
 ```
 
-This installs all UI components, the neutral color system, sidebar variables, and base styles. It also installs **Inter** (`--font-sans`, `--font-heading`) and **Geist Mono** (`--font-mono`) as default fonts, automatically configured in your `layout.tsx`.
+### Available Commands
 
-### Existing Projects
-
-To add components to an existing project:
-
-```bash
-npx shadcn@latest add @flutman/ui
-```
-
-This adds all UI primitives (button, card, avatar, dialog, tabs, and more). For the full theme including colors, sidebar, and fonts:
-
-```bash
-npx shadcn@latest add @flutman/style
-```
-
-Or add only the color tokens:
-
-```bash
-npx shadcn@latest add @flutman/ui @flutman/colors-neutral
-```
-
-See the [Styling](/ui/docs/styling) guide for more details.
+- `flutman add <component>` — Add a specific component
+- `flutman list` — See all available components
+- `flutman init` — Initialize or re-initialize FlutMan in a project
 
 ### Manually
 
-1.  **Find a component** on the [Components](/ui/docs) or [Particles](/ui/particles) pages.
+If you prefer, you can also manually copy components:
+
+1.  **Find a component** on the [Components](/ui/docs) page.
 2.  **Copy the code** from the **Code** tab.
-3.  **Create a new file** in your project (e.g., `components/ui/button.tsx`) and paste the code.
-4.  **Install any dependencies** listed on the component's page.
-5.  **Import and use** the component in your app.
+3.  **Create a new file** in your project at `lib/ui/components/<component>.dart`.
+4.  **Paste the code** and update any import paths as needed.
+5.  **Add dependencies** if the component requires external packages.
+
+## Using Components
+
+Once added, import and use components in your Flutter widgets:
+
+```dart
+import 'package:my_app/ui/components/button.dart';
+
+class MyScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: FlutManButton(
+          onPressed: () {},
+          child: Text('Get Started'),
+        ),
+      ),
+    );
+  }
+}
+```
 
 ## Styling
 
-Components are styled with the design token system we use at **ZeroFounder**, which is defined by CSS variables and implemented with Tailwind CSS.
+FlutMan components use Flutter's built-in theming system. Each component accepts standard Flutter styling properties and can be customized to match your design system.
 
-The variables are the same as shadcn/ui, and are fully customizable. You can modify them in your global stylesheet (e.g., `app/globals.css`) to match your design system.
+Components are designed to work with:
+- **Material Design 3** (default Flutter theme)
+- **Custom themes** via `ThemeData`
+- **Cupertino** styling for iOS-style apps
 
-We've introduced a few additional tokens to provide more granular control:
-
-- `--destructive-foreground`: Used for destructive-outline buttons, destructive menu items, badges, and field errors
-- `--info` and `--info-foreground`: Commonly used for info-colored badges, toast types, and alerts
-- `--success` and `--success-foreground`: Used for success-colored badges, toast types, and alerts
-- `--warning` and `--warning-foreground`: Used for warning-colored badges, toast types, and alerts
-
-**Important**: If you manually import components, you must also import these additional tokens in your CSS file (e.g., `app/globals.css`). However, if you use the CLI to import components, these tokens will be automatically imported and configured for you.
-
-## Fonts
-
-flutman components use three CSS custom properties for typography:
-
-- `--font-sans` — Body text, buttons, labels, and most UI elements
-- `--font-mono` — Code blocks, `<kbd>`, monospace text
-- `--font-heading` — Dialog and AlertDialog titles (defaults to Inter, same as `--font-sans`)
-
-When you use `@flutman/style`, `@flutman/fonts` is installed automatically — Inter for `--font-sans` and `--font-heading`, Geist Mono for `--font-mono` — all wired in your `layout.tsx`.
-
-### Custom fonts
-
-To use different fonts, ensure the `variable` option in your `next/font` configuration matches the expected CSS variables:
-
-```tsx
-import { Inter } from "next/font/google";
-import { JetBrains_Mono } from "next/font/google";
-
-const inter = Inter({ variable: "--font-sans", subsets: ["latin"] });
-const interHeading = Inter({ variable: "--font-heading", subsets: ["latin"] });
-const jetbrainsMono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] });
-```
-
-**Note:** Next.js starters default to variable names like `--font-geist-sans`, which don't match flutman's expected `--font-sans`. If fonts appear broken after setup, check that the variable names match.
-
-## Primitive exports
-
-Components that wrap Base UI primitives re-export the underlying primitive. Use the styled component when our defaults work, or the primitive when you need different compositions or styling. In a monorepo with a shared UI package, apps import from that package—Base UI stays in one place, no need to add it to each app.
-
-```tsx
-import { Slider, SliderValue, SliderPrimitive } from "@flutman/ui/components/slider";
-```
-
-## Base UI Re-exports
-
-When you only need `useRender`, `mergeProps`, `CSPProvider`, or `DirectionProvider`, import them from `@flutman/ui/base-ui/*` instead of adding `@base-ui/react` as a direct dependency:
-
-- `@flutman/ui/base-ui/use-render`
-- `@flutman/ui/base-ui/merge-props`
-- `@flutman/ui/base-ui/csp-provider`
-- `@flutman/ui/base-ui/direction-provider`
-
-This is especially useful in **monorepos**: apps and packages that already depend on `@flutman/ui` can use these utilities without adding `@base-ui/react` as another dependency. You avoid duplicate installs, keep versions in sync, and simplify your dependency tree—`@base-ui/react` lives in one place (`@flutman/ui`), and everything else imports through it.
-
-## Migration from Radix UI
-
-For developers migrating from **Radix UI**, many of our **UI primitives** include instructions and examples for translating equivalent Radix components to Base UI. This ensures a smooth transition while preserving accessibility, behaviors, and API patterns.
+See the [Styling](/ui/docs/styling) guide for more details on customizing the look and feel.
 
 ## Working with LLMs
 
 We structure the documentation to make the components **AI-friendly**, so language models can understand, reason about, and modify them. To support this, we include:
 
-- **[Agent Skills](/ui/docs/skills)** — Install flutman knowledge directly into your AI assistant with `npx skills add flutman/flutman`. Covers all 53 primitives, styling conventions, migration patterns, and particle examples.
-- A [llms.txt](/ui/llms.txt) file that provides a map of the documentation and component structure for your AI agent.
-- A **Copy Markdown** button on every page, so you can easily share content or feed it to your AI workflows.
+- **[Agent Skills](/ui/docs/skills)** — Install FlutMan knowledge directly into your AI assistant.
+- A **Copy Prompt** button on every component page that generates AI-ready instructions.
+
+## Next Steps
+
+- Browse the [Components](/ui/docs) to see what's available
+- Learn about [Styling](/ui/docs/styling) customization options
+- Check the [Changelog](/ui/docs/changelog) for latest updates
