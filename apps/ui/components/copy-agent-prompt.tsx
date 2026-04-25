@@ -28,19 +28,22 @@ export function CopyAgentPrompt({
       <TooltipTrigger
         render={
           <Button
-            className={cn("gap-1.5 text-xs", className)}
+            className={cn(
+              "gap-1.5 text-xs bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90",
+              className,
+            )}
             data-slot="copy-agent-prompt-button"
             onClick={() => copyToClipboard(agentPrompt)}
             size="sm"
-            variant={variant}
+            variant="default"
             {...props}
           >
             <SparklesIcon className="size-3.5" />
-            <span>Copy Agent Prompt</span>
+            <span>Copy Prompt</span>
           </Button>
         }
       />
-      <TooltipPopup>{isCopied ? "Copied!" : "Copy Agent Prompt"}</TooltipPopup>
+      <TooltipPopup>{isCopied ? "Copied!" : "Copy Prompt"}</TooltipPopup>
     </Tooltip>
   );
 }
