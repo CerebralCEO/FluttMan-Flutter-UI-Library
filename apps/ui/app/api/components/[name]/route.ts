@@ -1,23 +1,25 @@
 import { createClient } from "@supabase/supabase-js";
 import { type NextRequest, NextResponse } from "next/server";
 
-// Initialize Supabase client with service role key for server-side access
-const supabaseUrl =
-  process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+// Lazy initialization of Supabase client
+function getSupabaseClient() {
+  const supabaseUrl =
+    process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-if (!supabaseUrl || !supabaseServiceKey) {
-  throw new Error(
-    "SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL) and SUPABASE_SERVICE_ROLE_KEY environment variables are required",
-  );
+  if (!supabaseUrl || !supabaseServiceKey) {
+    throw new Error(
+      "SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL) and SUPABASE_SERVICE_ROLE_KEY environment variables are required",
+    );
+  }
+
+  return createClient(supabaseUrl, supabaseServiceKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  });
 }
-
-const supabase = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    persistSession: false,
-    autoRefreshToken: false,
-  },
-});
 
 export async function GET(
   _request: NextRequest,
@@ -26,6 +28,9 @@ export async function GET(
   try {
     const resolvedParams = await params;
     const name = resolvedParams.name;
+
+    // Initialize Supabase client lazily
+    const supabase = getSupabaseClient();
 
     // Query the ComponentRegistry table in Supabase
     const { data: component, error } = await supabase
