@@ -9,7 +9,7 @@
  * Usage: pnpm tsx scripts/sync-registry.ts
  */
 
-// test sync
+// test sync final
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { createClient } from "@supabase/supabase-js";
